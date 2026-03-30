@@ -1,6 +1,6 @@
 ## **LES APPS : A quoi elles servent**
 
-![Servarr][../Images/Servarr.jpg]
+![Servarr](../Images/Servarr.jpg)
 
 **Overseerr / Jellyseerr (bientôt remplacé par Seerr)**  
 Application utilisateur permettant de récolter les demandes d’ajout de films et de séries sur le serveur, avec validation, suivi de statut et intégration à Radarr et Sonarr.  
