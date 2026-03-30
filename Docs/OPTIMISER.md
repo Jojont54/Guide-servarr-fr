@@ -5,7 +5,7 @@ Adaptation des Custom-Formats de Pandaarr (sans problème d’espace, ni de tran
 
 ## Custom format (Les mêmes pour sonarr et radarr)
 
-![Custom format](../Images/Custom_Formats.png)
+<img src="../Images/Custom_Formats.png" width="400">
 
 ### FR (On prend si y’a que ca, ou VFO)
 ```yaml
@@ -200,7 +200,7 @@ Adaptation des Custom-Formats de Pandaarr (sans problème d’espace, ni de tran
 ```
 ## Profiles  
 
-![Profiles](../Images/Profiles.png)
+<img src="../Images/Profiles.png" width="400">
 
 ## Rules Maintainerr
 
