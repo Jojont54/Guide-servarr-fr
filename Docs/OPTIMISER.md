@@ -1,14 +1,13 @@
-# OPTIMISER  : Les YAML
-
-## **OPTIMISER : Les YAML**
+# **OPTIMISER : Les YAML**
 
 Adaptation des Custom-Formats de Pandaarr (sans problème d’espace, ni de transcodage)  
 [https://github.com/Pandaarr/arr-custom-formats](https://github.com/Pandaarr/arr-custom-formats)
 
 ## Custom format (Les mêmes pour sonarr et radarr)
 
+![Custom format](../Images/Custom_formats.png)
 
-FR (On prend si y’a que ca, ou VFO)
+### FR (On prend si y’a que ca, ou VFO)
 ```yaml
 {  
   "name": "FR",  
@@ -54,7 +53,9 @@ FR (On prend si y’a que ca, ou VFO)
   \]  
 }
 ```
-###   FRQ (On en veut pas) 
+
+### FRQ (On en veut pas) 
+
 ```yaml
 {  
   "name": "FRQ",  
@@ -100,7 +101,9 @@ FR (On prend si y’a que ca, ou VFO)
   \]  
 }
 ```
+
 ### Multi (C’est ce qu’on préfère)
+
 ```yaml
 {  
   "name": "Multi",  
@@ -149,6 +152,7 @@ FR (On prend si y’a que ca, ou VFO)
 ```
 
 ### VOSTFR (On prend si y’a que ca)
+
 ```yaml
 {  
   "name": "VOST",  
@@ -194,7 +198,9 @@ FR (On prend si y’a que ca, ou VFO)
   \]  
 }
 ```
-Profiles  
+## Profiles  
+
+![Profiles](../Images/Profiles.png)
 
 ## Rules Maintainerr
 
@@ -218,7 +224,8 @@ Le tag “perma” doit exister dans sonarr / radarr pour garder des contenus pe
 * Toute saison vieille de \+1 an → supprimé (garde-fou)  
 * Exception : “perma” ne sera jamais supprimé, quoi qu’il arrive.
 
-#### Rule Film 
+### Rule Film 
+
 ```yaml
 mediaType: MOVIES  
 rules:  
