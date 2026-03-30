@@ -9,7 +9,7 @@ Adaptation des Custom-Formats de Pandaarr (sans problème d’espace, ni de tran
 
 
 FR (On prend si y’a que ca, ou VFO)
-
+```yaml
 {  
   "name": "FR",  
   "includeCustomFormatWhenRenaming": false,  
@@ -53,9 +53,9 @@ FR (On prend si y’a que ca, ou VFO)
     }  
   \]  
 }
-
+```
 ###   FRQ (On en veut pas) 
-
+```yaml
 {  
   "name": "FRQ",  
   "includeCustomFormatWhenRenaming": false,  
@@ -99,9 +99,9 @@ FR (On prend si y’a que ca, ou VFO)
     }  
   \]  
 }
-
+```
 ### Multi (C’est ce qu’on préfère)
-
+```yaml
 {  
   "name": "Multi",  
   "includeCustomFormatWhenRenaming": false,  
@@ -146,9 +146,10 @@ FR (On prend si y’a que ca, ou VFO)
     }  
   \]  
 }
+```
 
 ### VOSTFR (On prend si y’a que ca)
-
+```yaml
 {  
   "name": "VOST",  
   "includeCustomFormatWhenRenaming": false,  
@@ -192,7 +193,7 @@ FR (On prend si y’a que ca, ou VFO)
     }  
   \]  
 }
-
+```
 Profiles  
 
 ## Rules Maintainerr
@@ -218,7 +219,7 @@ Le tag “perma” doit exister dans sonarr / radarr pour garder des contenus pe
 * Exception : “perma” ne sera jamais supprimé, quoi qu’il arrive.
 
 #### Rule Film 
-
+```yaml
 mediaType: MOVIES  
 rules:  
   \- "0":  
@@ -325,9 +326,11 @@ rules:
         customValue:  
           type: text  
           value: Perma
+```
 
 ### Rule série et animes (Créé 2 règles si les profiles sont séparé dans sonarr)
 
+```yaml
 mediaType: SEASONS  
 rules:  
   \- "0":  
@@ -447,3 +450,4 @@ rules:
           type: text  
           value: perma
 
+```
