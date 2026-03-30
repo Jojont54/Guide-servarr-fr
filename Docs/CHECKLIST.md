@@ -5,7 +5,7 @@
 Cette vidéo explique tout.
 
 ## Création des dossiers
-
+```
 data
 ├── downloads
 │     ├── torrents
@@ -13,7 +13,7 @@ data
 └── library
 	├── movies
 ﻿	└── series
-
+```
 ## Ordre d’installation recommandé
 
 **qBittorrent →**📥 Télécharger  
