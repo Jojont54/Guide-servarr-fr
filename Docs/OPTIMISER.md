@@ -200,7 +200,7 @@ Adaptation des Custom-Formats de Pandaarr (sans problème d’espace, ni de tran
 ```
 ## Profiles  
 
-<img src="../Images/Profiles.png" width="400">
+<img src="../Images/Profiles.png" width="300">
 
 ## Rules Maintainerr
 
