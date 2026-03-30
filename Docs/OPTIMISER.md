@@ -5,7 +5,7 @@ Adaptation des Custom-Formats de Pandaarr (sans problème d’espace, ni de tran
 
 ## Custom format (Les mêmes pour sonarr et radarr)
 
-![Custom format](../Images/Custom_formats.png)
+![Custom format](../Images/Custom_Formats.png)
 
 ### FR (On prend si y’a que ca, ou VFO)
 ```yaml
