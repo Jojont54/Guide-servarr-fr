@@ -14,6 +14,8 @@ data
 	├── movies
 ﻿	└── series
 ```
+Il est conseillé d'installer toute les applications avec un accès a /data
+
 ## Ordre d’installation recommandé
 
 **qBittorrent →**📥 Télécharger  
