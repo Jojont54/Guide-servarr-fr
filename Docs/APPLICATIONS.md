@@ -22,8 +22,9 @@ Outil d’automatisation du nettoyage côté téléchargement qui supprime ou g�
 Outils d’optimisation du seeding qui détectent des correspondances entre torrents (même contenu, hashes compatibles) pour ajouter automatiquement des torrents supplémentaires et maximiser le ratio sans re-télécharger sur d'autres tracker que celui d'origine (pas accepté par tout les trackers)
 
 Autre outils intéressant à ajouter à la config :  
-\- maintainerr-overlay-helperr \--\> pour les utilisateurs de Plex ajoute une catégorie "part bientôt" et ajoute un compteur à l'affiche  
-\- tautulli \--\> pour les utilisateurs de Plex, un dashboard  
-\- homarr \--\> dashboard pour les utilisateurs du serveurs  
-\- wizarr \--\> pour les utilisateurs de Plex, simplifie les invitations
+
+\- **Maintainerr-overlay-helperr** \--\> pour les utilisateurs de Plex ajoute une catégorie "part bientôt" et ajoute un compteur à l'affiche  
+\- **Tautulli** \--\> pour les utilisateurs de Plex, un dashboard  
+\- **Homarr** \--\> dashboard pour les utilisateurs du serveurs  
+\- **Wizarr** \--\> pour les utilisateurs de Plex, simplifie les invitations
 
