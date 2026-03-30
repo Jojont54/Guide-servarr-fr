@@ -1,22 +1,15 @@
 # Guide-servarr-fr
+
 Guide à l'installation et la configuration d'un serveur utilisant la suite arr* 
 
-## Sommaire
+### Sommaire
 
-## **LES BASES : Machine virtuel et Docker**
+- [LES BASES : Machine virtuel et Docker](docs/BASES.md)
 
-### Machine virtuelle
+- [QUELQUES NOTIONS : Réseau & Hardlink](docs/NOTIONS.md)
 
-### Docker
+- [LES APPS : A quoi elles servent](docs/APPLICATIONS.md)
 
-## **QUELQUES NOTIONS : Réseau & Hardlink**
+- [LA CHECKLIST : La configuration](docs/CHECKLIST.md)
 
-### Réseau
-
-### Hardlink
-
-## **LES APPS : A quoi elles servent**
-
-## **LA CHECKLIST : La configuration**
-
-## **OPTIMISER : Les YAML**
+- [OPTIMISER : Les YAML](docs/OPTIMISER.md)
