@@ -74,7 +74,7 @@ pour accéder à l’application (interface web) ou connecter 2 apps entre-elles
 
 ##Docker compose
 
-Docker Compose est la méthode pour créer et configurer un conteneur Docker. C'est un fichier .yaml qui décrit le comportement du conteneur.
+**Docker Compose** est la méthode pour **créer et configurer** un conteneur Docker. C'est **un fichier .yaml** qui décrit le comportement du conteneur.
 Une application isolée du système, qui n’a accès qu’aux dossiers, au réseau et aux paramètres qu’on lui autorise.
 
 ```yaml
