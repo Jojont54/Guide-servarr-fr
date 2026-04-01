@@ -22,7 +22,7 @@ Il est conseillé d'installer toute les applications avec un accès a /data
 (optionnel) VPN → Gluetun ou une stack qBittorrent avec VPN intégré  
 Redirection de port OBLIGATOIRE (Avec ou sans VPN)
 
-**Prowlarr** → 🔎 Trouver  
+**Prowlarr →** 🔎 Trouver  
 Liste des indexers (tracker)  
 Configuration de la synchronisation au app Radarr/Sonarr/etc.
 
@@ -42,12 +42,33 @@ Configurer les bibliothèques
 Au démarrage demande la configuration :   
 Sonarr et Radarr et Plex ou Jellyfin
 
-## (Optionnel) Gestion automatique de la suppression
+## (Optionnel) Gestion automatique de la suppression et optimisation
 
-**Maintainerr →** 🧹 Optimiser  
+**Maintainerr →** 🧹 Supprimer  
 Connexion à Plex ou Jellyfin, Sonarr, Radarr et Seerr  
 → Configuration des Rules (“ajoute dans la corbeille si”)
 
-**Cleanupparr →** 🧹 Optimiser  
+**Cleanupparr →** 🧹 Supprimer  
 Connexion à Sonarr, Radarr, qBittorrent  
 → Configuration de Download Cleaner (supprimé le seed automatiquement si plus dans la bibliothèque)
+
+**Cross-seed →** 🌱​ Optimiser
+Lors de la création du conteneur, un fichier config.js se créé dans appdata, il faut le modifier
+→ Configuration de Torznab
+```torznab: [
+        "http://prowlarr:9696/1/api?apikey=12345",
+        "http://prowlarr:9696/2/api?apikey=12345",
+    ],
+```
+→ Configuration de Sonarr / Radarr / qbittorent
+```sonarr: ["http://sonarr:8989/?apikey=12345"],
+   radarr: ["http://radarr:7878/?apikey=12345"],
+   torrentClients: ["qbittorrent:http://user:pass@qbittorent:8080"],
+```
+→ Ensuite, pour éviter un ban sur les trackers, il vaut mieux ralentir la recherche
+```rssCadence: "2 hours",
+   searchCadence: "1 day",
+   snatchTimeout: "30 seconds",
+   searchTimeout: "2 minutes",
+   searchLimit: 400,
+```
