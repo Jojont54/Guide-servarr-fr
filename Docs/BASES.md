@@ -72,6 +72,38 @@ pour accéder à l’application (interface web) ou connecter 2 apps entre-elles
 
 `USER_PASSWORD = UnMDPderêve`
 
+##Docker compose
+
+Docker Compose est la méthode pour créer et configurer un conteneur Docker. C'est un fichier .yaml qui décrit le comportement du conteneur.
+Une application isolée du système, qui n’a accès qu’aux dossiers, au réseau et aux paramètres qu’on lui autorise.
+
+```yaml
+version: "3"
+
+services:
+  sonarr:
+    image: lscr.io/linuxserver/sonarr:latest
+    container_name: sonarr
+    restart: unless-stopped
+
+    ports:
+      - "8989:8989"
+
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Paris
+
+    volumes:
+      - /mnt/user/appdata/sonarr:/config
+      - /mnt/user/data:/data
+```
+
+Ici nous créons Sonarr, on lui donne un nom, on choisi le repo source, et quelques paramètres, puis on lui donne comme dit plus haut: 
+- du réseau (port)
+- un environement (PUID / PGID, droit accès en lecture ecriture)
+- des accès au disques / au fichiers, ici un dossier qui s'appellera /config dans l'app mais qui écrit sur /mnt/user/appdata/sonarr de notre ordinateur. Et le dossier /data
+
 ## Résumé
 
 On peut utiliser le VM ou Docker pour isoler les applications entre elles.   
