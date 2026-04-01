@@ -104,6 +104,14 @@ Ici nous créons Sonarr, on lui donne un nom, on choisi le repo source, et quelq
 - un environement (PUID / PGID, droit accès en lecture ecriture)
 - des accès au disques / au fichiers, ici un dossier qui s'appellera /config dans l'app mais qui écrit sur /mnt/user/appdata/sonarr de notre ordinateur. Et le dossier /data
 
+De nombreuses méthodes simplifie ce processus:
+- L'interface Docker de Unraid
+- Portainer.io
+- La bibliothèque app de Ultra.cc
+- Synology, QNAP, Ugreen, etc. 
+
+Ces interfaces évitent d’écrire le fichier YAML à la main. Mais il est toujours possible d'utilise docker compose dans le terminal en ligne de commande.
+
 ## Résumé
 
 On peut utiliser le VM ou Docker pour isoler les applications entre elles.   
