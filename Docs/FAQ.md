@@ -1,7 +1,5 @@
 # **FAQ : Torrents**
 
----
-
 ## Différence tracker public / privé ?
 
 **Public :**  
@@ -38,7 +36,6 @@ les VPN sans port forwarding (ex : NordVPN)
 
 Sur BitTorrent, il existe une différence essentielle :  
 tu es soit connectable, soit non connectable.
-
 
 **Port fermé → non connectable**  
 tu inities les connexions pour télécharger  
