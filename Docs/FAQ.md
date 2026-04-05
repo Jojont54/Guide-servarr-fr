@@ -100,7 +100,7 @@ peu de seeders / beaucoup de leechers
 Plus de demande = plus d’upload.
 
 **Être connectable (port forwarding)**  
-Indispensable :
+Indispensable :  
 plus de connexions  
 plus d’upload  
 meilleur ratio  
