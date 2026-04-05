@@ -74,7 +74,8 @@ risque de ban
 
 ## Quelques tips
 
-**Règles de base**  
+### Règles de base
+ 
 Toujours penser à ton ratio avant de télécharger  
 Un bon setup réseau > un bon tracker  
 
