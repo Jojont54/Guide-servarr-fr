@@ -23,13 +23,11 @@ Ratio = upload / download
 Choisis un VPN qui propose le port forwarding.
 
 Exemples :
-
 ProtonVPN
 Private Internet Access
 AirVPN
 
 À éviter pour cet usage :
-
 les VPN sans port forwarding (ex : NordVPN)
 
 ## Pourquoi c’est important le port forwarding ?
