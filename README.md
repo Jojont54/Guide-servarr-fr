@@ -13,3 +13,5 @@ Guide à l'installation et la configuration d'un serveur utilisant la suite arr*
 - [LA CHECKLIST : La configuration](Docs/CHECKLIST.md)
 
 - [OPTIMISER : Les YAML](Docs/OPTIMISER.md)
+
+- [FAQ : Torrents](Docs/FAQ.md)
