@@ -104,3 +104,48 @@ Indispensable :
 plus de connexions  
 plus d’upload  
 meilleur ratio  
+
+## Quelques Mot-clé
+
+**Freeleech**  
+le téléchargement ne compte pas dans ton ratio  
+l’upload est toujours compté  
+
+**Silverleech**  
+le téléchargement est partiellement compté (ex : 50 %)  
+l’upload est entièrement compté  
+
+compromis entre normal et freeleech  
+
+**Double upload**  
+ton upload est multiplié (ex : x2)  
+ton download reste normal  
+
+permet de monter ton ratio plus rapidement 
+
+**Bonus de seed**  
+certains trackers récompensent le temps de seed  
+tu gagnes des points en laissant tes torrents actifs  
+
+utilisable pour :  
+acheter du crédit upload  
+d'autre récompense sur le site  
+faire des échanges ou des requêtes  
+
+**Hit & Run (H&R)** 
+tu télécharges un torrent sans respecter les règles de seed  
+généralement : temps minimum ou ratio minimum non atteint  
+
+peut entraîner :  
+avertissement  
+restriction  
+ban  
+
+**Cross-seed**  
+utiliser un même fichier pour plusieurs trackers  
+permet :  
+d’augmenter l’upload  
+d’optimiser le ratio sans retélécharger  
+
+ATTENTION ne pas confondre avec multi-seed  
+1 Torrent avec plusieurs tracker = fausse les stats --> Interdit
