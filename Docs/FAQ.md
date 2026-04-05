@@ -132,7 +132,7 @@ acheter du crédit upload
 d'autre récompense sur le site  
 faire des échanges ou des requêtes  
 
-**Hit & Run (H&R)** 
+**Hit & Run (H&R)**  
 tu télécharges un torrent sans respecter les règles de seed  
 généralement : temps minimum ou ratio minimum non atteint  
 
@@ -148,4 +148,5 @@ d’augmenter l’upload
 d’optimiser le ratio sans retélécharger  
 
 ATTENTION ne pas confondre avec multi-seed  
-1 Torrent avec plusieurs tracker = fausse les stats --> Interdit
+1 Torrent avec plusieurs tracker = fausse les stats --> Interdit  
+1 Torrent par tracker sur les mêmes fichiers --> OK  
