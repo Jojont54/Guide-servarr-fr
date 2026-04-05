@@ -5,17 +5,16 @@
 ## Différence tracker public / privé ?
 
 ### Public :
-- accès libre  
-- pas de ratio  
-- moins fiable  
+accès libre  
+pas de ratio  
+moins fiable  
 
 ### Privé :
-- accès restreint (inscription / invitation)  
-- ratio obligatoire  
-- meilleure qualité  
-- plus stable  
+accès restreint (inscription / invitation)  
+ratio obligatoire  
+meilleure qualité  
+plus stable  
 
----
 
 ## C’est quoi le ratio ?
 
@@ -36,14 +35,11 @@ Choisis un VPN qui propose le port forwarding.
 ### À éviter pour cet usage :
 - les VPN sans port forwarding (ex : NordVPN)  
 
----
-
 ## Pourquoi c’est important le port forwarding ?
 
 Sur BitTorrent, il existe une différence essentielle :  
 tu es soit connectable, soit non connectable.
 
----
 
 ### Port fermé → non connectable
 
@@ -55,7 +51,6 @@ Résultat :
 - tu es peu visible  
 - upload limité  
 
----
 
 ### Port ouvert → connectable
 
@@ -67,8 +62,6 @@ Résultat :
 - plus d’upload  
 - seed efficace  
 
----
-
 ## Pourquoi mon ratio ne monte pas ?
 
 Souvent parce que :
@@ -77,8 +70,6 @@ Souvent parce que :
 - peu de demande sur le torrent  
 - trop de seeders  
 
----
-
 ## Puis-je supprimer un torrent juste après téléchargement ?
 
 Mauvaise idée sur tracker privé :
@@ -86,8 +77,6 @@ Mauvaise idée sur tracker privé :
 - mesure de protection anti H&R  
 - ton ratio chute  
 - risque de ban  
-
----
 
 ## Quelques tips
 
