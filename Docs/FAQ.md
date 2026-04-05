@@ -4,12 +4,12 @@
 
 ## Différence tracker public / privé ?
 
-**Public :**
+**Public :**  
 accès libre  
 pas de ratio  
 moins fiable  
 
-**Privé :**
+**Privé :**  
 accès restreint (inscription / invitation)  
 ratio obligatoire  
 meilleure qualité  
@@ -26,12 +26,12 @@ Ratio = upload / download
 
 Choisis un VPN qui propose le port forwarding.
 
-**Exemples :**
+**Exemples :**  
 ProtonVPN  
 Private Internet Access  
 AirVPN  
 
-**À éviter pour cet usage :**
+**À éviter pour cet usage :**  
 les VPN sans port forwarding (ex : NordVPN)  
 
 ## Pourquoi c’est important le port forwarding ?
@@ -40,8 +40,7 @@ Sur BitTorrent, il existe une différence essentielle :
 tu es soit connectable, soit non connectable.
 
 
-**Port fermé → non connectable**
-
+**Port fermé → non connectable**  
 tu inities les connexions pour télécharger  
 les autres peers ne peuvent pas se connecter à toi  
 
@@ -51,8 +50,7 @@ tu es peu visible
 upload limité  
 
 
-**Port ouvert → connectable**
-
+**Port ouvert → connectable**  
 tu peux initier des connexions  
 les autres peuvent se connecter à toi  
 
@@ -79,36 +77,31 @@ risque de ban
 
 ## Quelques tips
 
-**Règles de base**
-
+**Règles de base**  
 Toujours penser à ton ratio avant de télécharger  
 Un bon setup réseau > un bon tracker  
 
 ### Booster son ratio (méthodes propres)
 
-**Seeder longtemps**
-
+**Seeder longtemps**  
 laisser tourner ses torrents H24  
 surtout les nouveaux torrents  
 
 Simple, efficace, recommandé.
 
-**Télécharger tôt (early seeding)**
-
+**Télécharger tôt (early seeding)**  
 prendre un torrent dès sa sortie  
 beaucoup de leechers → beaucoup d’upload  
 
 Meilleure méthode naturelle.
 
-**Choisir les bons torrents**
-
+**Choisir les bons torrents**  
 torrents populaires  
 peu de seeders / beaucoup de leechers  
 
 Plus de demande = plus d’upload.
 
-**Être connectable (port forwarding)**
-
+**Être connectable (port forwarding)**  
 Indispensable :
 plus de connexions  
 plus d’upload  
