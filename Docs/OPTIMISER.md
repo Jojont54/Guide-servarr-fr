@@ -7,6 +7,11 @@ Adaptation des Custom-Formats de Pandaarr (sans problème d’espace, ni de tran
 
 <img src="../Images/Custom_Formats.png" width="800">
 
+Il est aussi important de mettre cette option a "do not prefer" sinon le système va upgrade souvent :
+
+<img src="../Images/Media_Management.png" width="800">
+
+
 ### FR (On prend si y’a que ca, ou VFO)
 ```yaml
 {
