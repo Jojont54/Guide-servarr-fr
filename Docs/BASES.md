@@ -74,8 +74,22 @@ pour accéder à l’application (interface web) ou connecter 2 apps entre-elles
 
 ## Docker compose
 
-**Docker Compose** est la méthode pour **créer et configurer** un conteneur Docker. C'est **un fichier .yaml** qui décrit le comportement du conteneur.
-Une application isolée du système, qui n’a accès qu’aux dossiers, au réseau et aux paramètres qu’on lui autorise.
+**Docker Compose** est un outil permettant de **définir et lancer un ou plusieurs conteneurs Docker**.  
+Il utilise un fichier **.yaml** qui décrit :
+
+- les conteneurs à lancer  
+- leur configuration (ports, volumes, variables d’environnement)  
+- leurs interactions (réseau, dépendances)  
+
+Chaque application est **isolée du système** et n’a accès qu’aux ressources qu’on lui autorise (dossiers, réseau, paramètres, etc.).
+
+Une analogie simple : lors de l’installation d’un logiciel sur Windows, une fenêtre de configuration apparaît, et on clique souvent sur “Suivant” sans trop réfléchir.  
+Le fichier `.yaml` remplace cette étape… **mais de manière écrite, reproductible et modifiable à tout moment**.
+
+Docker Compose permet ainsi de **recréer exactement la même application en une seule commande**.  
+En sauvegardant ses fichiers `.yaml`, on dispose en pratique d’un **backup de la configuration de ses applications**.
+
+> Cela ne sauvegarde pas les données (fichiers, bases de données), uniquement la configuration.
 
 ```yaml
 version: "3"
