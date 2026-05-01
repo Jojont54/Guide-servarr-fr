@@ -27,4 +27,5 @@ Autre outils intéressant à ajouter à la config :
 \- **Tautulli** \--\> pour les utilisateurs de Plex, un dashboard  
 \- **Homarr** \--\> dashboard pour les utilisateurs du serveurs  
 \- **Wizarr** \--\> pour les utilisateurs de Plex, simplifie les invitations
+\- **Profilarr** \--\> gestion de Trash guide de sonarr et radarr pour générer la qualité via un profil Github (https://github.com/leof28/profilarr-dbFR)
 
