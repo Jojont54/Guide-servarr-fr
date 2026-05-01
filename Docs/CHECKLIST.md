@@ -55,7 +55,7 @@ Connexion à Sonarr, Radarr, qBittorrent
 → Configuration de Download Cleaner (supprimé le seed automatiquement si plus dans la bibliothèque)
 
 **Cross-seed →** 🌱​ Optimiser
-Lors de la création du conteneur, un fichier config.js se créé dans appdata, il faut le modifier
+Lors de la création du conteneur, un fichier config.js se créé dans appdata, il faut le modifier  
 → Configuration de Torznab
 ```
 	torznab: [
