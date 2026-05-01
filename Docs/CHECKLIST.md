@@ -65,13 +65,13 @@ Lors de la création du conteneur, un fichier config.js se créé dans appdata, 
 ```
 → Configuration de Sonarr / Radarr / qbittorent
 ```
-	sonarr: ["http://sonarr:8989/?apikey=12345"],
+    sonarr: ["http://sonarr:8989/?apikey=12345"],
     radarr: ["http://radarr:7878/?apikey=12345"],
     torrentClients: ["qbittorrent:http://user:pass@qbittorent:8080"],
 ```
 → Ensuite, pour éviter un ban sur les trackers, il vaut mieux ralentir la recherche
 ```
-	rssCadence: "2 hours",
+    rssCadence: "2 hours",
     searchCadence: "1 day",
     snatchTimeout: "30 seconds",
     searchTimeout: "2 minutes",
