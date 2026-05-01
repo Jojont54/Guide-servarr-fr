@@ -58,7 +58,7 @@ Connexion à Sonarr, Radarr, qBittorrent
 Lors de la création du conteneur, un fichier config.js se créé dans appdata, il faut le modifier  
 → Configuration de Torznab
 ```
-	torznab: [
+    torznab: [
         "http://prowlarr:9696/1/api?apikey=12345",
         "http://prowlarr:9696/2/api?apikey=12345",
     ],
