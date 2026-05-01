@@ -5,6 +5,8 @@ Adaptation des Custom-Formats de Pandaarr (sans problème d’espace, ni de tran
 
 ## Custom format (Les mêmes pour sonarr et radarr)
 
+Inutile si vous utilisez **Profilarr**
+
 <img src="../Images/Custom_Formats.png" width="800">
 
 Il est aussi important de mettre cette option a "do not prefer" sinon le système va upgrade souvent (dans Media Management):
