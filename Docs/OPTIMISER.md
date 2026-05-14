@@ -1,11 +1,13 @@
 # **OPTIMISER : Les YAML**
 
+Si vous ne voulez pas utiliser **Profilarr**, vous pouvez appliquer les YAML ci-dessous manuellement. Sinon, vous pouvez utiliser mon repo DB FR pour Profilarr : [Profilarr-database-french-regex](https://github.com/Jojont54/Profilarr-database-french-regex)  
+
 Adaptation des Custom-Formats de Pandaarr (sans problème d’espace, ni de transcodage)  
 [https://github.com/Pandaarr/arr-custom-formats](https://github.com/Pandaarr/arr-custom-formats)
 
-## Custom format (Les mêmes pour sonarr et radarr)
+Différentes RULES **Maintainerr** sont disponible directement dans l'app si vous le souhaitez, mais je vous propose mes règles avec des explications. 
 
-Inutile si vous utilisez **Profilarr**
+## Custom format (Les mêmes pour sonarr et radarr)
 
 <img src="../Images/Custom_Formats.png" width="800">
 
@@ -13,9 +15,7 @@ Il est aussi important de mettre cette option a "do not prefer" sinon le systèm
 
 <img src="../Images/Media_Management.png" width="800">
 
-Pour copier les yaml il faut aller directement dans le repo : [OPTIMISER : Les YAML](https://github.com/Jojont54/Guide-servarr-fr/blob/main/Docs/OPTIMISER.md)
-
-Si vous ne voulez pas utiliser **Profilarr**, vous pouvez appliquer les YAML ci-dessous manuellement. Sinon, vous pouvez utiliser mon repo DB FR pour Profilarr : [Profilarr-database-french-regex](https://github.com/Jojont54/Profilarr-database-french-regex)
+Pour copier les yaml il faut aller directement dans le repo : [OPTIMISER : Les YAML](https://github.com/Jojont54/Guide-servarr-fr/blob/main/Docs/OPTIMISER.md)  
 
 ### FR (On prend si y’a que ca, ou VFO)
 ```yaml
