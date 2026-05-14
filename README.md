@@ -10,6 +10,8 @@ Guide à l'installation et la configuration d'un serveur utilisant la suite arr*
 
 - [LES APPS : A quoi elles servent](Docs/APPLICATIONS.md)
 
+- [VIDEO : Les bases pour Servarr](Docs/VIDEO.md)
+
 - [OPTIMISER : Les YAML](Docs/OPTIMISER.md)
 
 - [FAQ : Torrents](Docs/FAQ.md)
