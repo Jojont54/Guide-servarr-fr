@@ -10,8 +10,6 @@ Guide à l'installation et la configuration d'un serveur utilisant la suite arr*
 
 - [LES APPS : A quoi elles servent](Docs/APPLICATIONS.md)
 
-- [LA CHECKLIST : La configuration](Docs/CHECKLIST.md)
-
 - [OPTIMISER : Les YAML](Docs/OPTIMISER.md)
 
 - [FAQ : Torrents](Docs/FAQ.md)
