@@ -15,6 +15,8 @@ Il est aussi important de mettre cette option a "do not prefer" sinon le systèm
 
 Pour copier les yaml il faut aller directement dans le repo : [OPTIMISER : Les YAML](https://github.com/Jojont54/Guide-servarr-fr/blob/main/Docs/OPTIMISER.md)
 
+Si vous ne voulez pas utiliser **Profilarr**, vous pouvez appliquer les YAML ci-dessous manuellement. Sinon, vous pouvez utiliser mon repo DB FR pour Profilarr : [Profilarr-database-french-regex](https://github.com/Jojont54/Profilarr-database-french-regex)
+
 ### FR (On prend si y’a que ca, ou VFO)
 ```yaml
 {
