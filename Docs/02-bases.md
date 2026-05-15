@@ -1,4 +1,4 @@
-# **LES BASES : Docker, dossiers et réseau**
+# **Bases : Docker, dossiers et réseau**
 
 Avant de configurer Radarr, Sonarr ou Prowlarr, il faut comprendre trois choses :
 
@@ -243,4 +243,4 @@ Pour un setup Servarr propre :
 - utilisez les noms des conteneurs pour connecter les apps entre elles
 - récupérez les API Keys quand une application doit parler à une autre
 
-Une fois ces bases comprises, vous pouvez suivre le parcours dans [DÉMARRER](DEMARRER.md).
+Une fois ces bases comprises, vous pouvez revenir au parcours dans [Démarrer pas à pas](01-demarrer.md).

@@ -1,4 +1,4 @@
-# **OPTIMISER : Les YAML**
+# **Optimiser : profils, Custom Formats et règles**
 
 Cette page arrive après l'installation de base.
 Avant de toucher aux profils, vérifiez que la chaîne fonctionne déjà :
@@ -31,13 +31,13 @@ Les YAML restent disponibles pour ceux qui veulent comprendre ou appliquer la co
 
 ## Custom format (Les mêmes pour sonarr et radarr)
 
-<img src="../Images/Custom_Formats.png" width="800">
+<img src="assets/custom-formats.png" width="800">
 
 Il est aussi important de mettre cette option a "do not prefer" sinon le système va upgrade souvent (dans Media Management):
 
-<img src="../Images/Media_Management.png" width="800">
+<img src="assets/media-management.png" width="800">
 
-Pour copier les yaml il faut aller directement dans le repo : [OPTIMISER : Les YAML](https://github.com/Jojont54/Guide-servarr-fr/blob/main/Docs/OPTIMISER.md)  
+Pour copier les YAML, il faut aller directement dans le repo : [Optimiser : les YAML](https://github.com/Jojont54/Guide-servarr-fr/blob/main/Docs/06-optimiser.md)  
 
 ### FR (On prend si y’a que ca, ou VFO)
 ```yaml
@@ -232,7 +232,7 @@ Pour copier les yaml il faut aller directement dans le repo : [OPTIMISER : Les Y
 ```
 ## Profiles  
 
-<img src="../Images/Profiles.png" width="600">
+<img src="assets/profiles.png" width="600">
 
 ## Rules Maintainerr
 

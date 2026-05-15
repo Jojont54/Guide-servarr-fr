@@ -1,4 +1,4 @@
-# **FAQ : Torrents**
+# **FAQ torrents**
 
 ## Différence tracker public / privé ?
 

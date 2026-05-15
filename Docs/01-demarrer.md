@@ -1,4 +1,4 @@
-# **DÉMARRER : Le parcours pas à pas**
+# **Démarrer pas à pas**
 
 Cette page sert de fil conducteur.
 Les autres pages expliquent les détails, mais ici on suit l’ordre logique pour construire un serveur Servarr fonctionnel.
@@ -36,22 +36,8 @@ L’idée importante :
 
 **qBittorrent, Radarr et Sonarr doivent voir le même dossier `/data`.**
 
-Exemple :
-
-- sur la machine : `/mnt/user/data`
-- dans les conteneurs : `/data`
-
-Pourquoi ?
-Parce que Radarr/Sonarr doivent pouvoir ranger les fichiers téléchargés sans les copier.
-C’est ce qui permet les hardlinks.
-
-À éviter :
-
-- donner `/downloads` à qBittorrent
-- donner `/movies` à Radarr
-- donner `/series` à Sonarr
-
-Si chaque app voit un chemin différent, les imports deviennent plus compliqués et les hardlinks peuvent casser.
+Exemple : `/mnt/user/data` sur la machine devient `/data` dans les conteneurs.
+Les détails sont expliqués dans [Bases : Docker, dossiers et réseau](02-bases.md).
 
 ## Étape 2 : Installer les applications de base
 
@@ -67,7 +53,7 @@ Seerr/Jellyseerr/Overseerr peut venir juste après, quand Radarr et Sonarr fonct
 
 Les outils optionnels comme Maintainerr, Cleanupparr, Cross-seed et Profilarr sont utiles, mais il vaut mieux les ajouter quand la base est stable.
 
-Ressource utile pour voir une configuration complète en vidéo :
+Pour voir une configuration complète en vidéo :
 [vidéo OptiNAS sur la configuration Servarr](https://www.youtube.com/watch?v=gQ56YY4Y56o)
 
 ## Étape 3 : Configurer qBittorrent
@@ -84,29 +70,16 @@ qBittorrent est le client de téléchargement.
 Si vous utilisez des trackers privés, la redirection de port est très importante.
 Sans port ouvert, vous pouvez télécharger, mais vous seederez souvent beaucoup moins bien.
 
-### VPN et kill switch
+### VPN
 
-Pour le téléchargement torrent, le plus simple est souvent d'utiliser une image Docker qui intègre directement :
-
-- qBittorrent
-- le VPN
-- un kill switch
-
+Pour débuter, je conseille une image qui intègre directement qBittorrent, le VPN et un kill switch.
 Exemple : `binhex-qbittorrentVPN`.
 
-L'intérêt du kill switch est important : si le VPN tombe, qBittorrent ne continue pas à télécharger ou seed en dehors du VPN.
-Ça évite les fuites réseau.
-
-Je conseille cette approche plutôt que de bricoler un VPN séparé au niveau de toute la machine, surtout pour débuter.
-On garde le VPN limité au client torrent, pendant que Radarr, Sonarr, Prowlarr, Plex/Jellyfin et Seerr restent accessibles normalement sur le réseau local.
+Cette approche évite de bricoler un VPN séparé au niveau de toute la machine.
+Le VPN reste limité au client torrent, pendant que Radarr, Sonarr, Prowlarr, Plex/Jellyfin et Seerr restent accessibles normalement sur le réseau local.
 Gluetun peut aussi faire le travail, mais il est plus compliqué à utiliser et à relier correctement aux autres conteneurs.
 
-À retenir :
-
-- le VPN doit idéalement proposer le port forwarding
-- le port transféré doit être utilisé par qBittorrent
-- si le VPN ne propose pas de port forwarding, le seeding sera souvent moins bon
-- ne mettez pas toute la stack Servarr derrière le VPN sans raison
+Le détail est dans la [FAQ torrents](07-faq-torrents.md).
 
 ## Étape 4 : Configurer Prowlarr
 

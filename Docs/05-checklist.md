@@ -1,4 +1,4 @@
-# **CHECKLIST : Vérifier que tout fonctionne**
+# **Checklist : vérifier l'installation**
 
 Cette page sert à valider votre installation.
 Ne cherchez pas à tout optimiser tant que cette checklist n’est pas propre.
@@ -78,7 +78,7 @@ Pour les séries, vérifiez aussi la langue et les règles de release.
 - la lecture fonctionne
 - le plus possible est en Direct Play
 
-Si tout transcode, regardez la page [VIDEO](VIDEO.md).
+Si tout transcode, regardez la page [Vidéo](04-video.md).
 
 ## 7. Seerr / Jellyseerr / Overseerr
 

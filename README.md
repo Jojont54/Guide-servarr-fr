@@ -1,75 +1,46 @@
 # Guide Servarr FR
 
-Ce guide explique comment construire un serveur multimédia autour de la suite Arr :
+Ce guide explique comment construire un serveur multimédia autour de la suite Arr, sans partir dans tous les sens :
 
-- demander un film ou une série
-- trouver la bonne release
-- télécharger
-- ranger automatiquement
+- installer les bonnes applications
+- connecter les services entre eux
+- télécharger et ranger automatiquement
 - lire avec Plex ou Jellyfin
-- nettoyer et optimiser ensuite
+- optimiser ensuite, quand la base fonctionne
 
 L’objectif n’est pas de tout configurer parfaitement dès le premier jour.
-L’objectif est d’avoir un serveur qui fonctionne, de comprendre ce que chaque brique fait, puis d’améliorer progressivement.
+L’objectif est d’avoir un serveur simple, compréhensible, puis de l’améliorer étape par étape.
+
+![Schéma Servarr](Docs/assets/servarr-flow.jpg)
 
 ## Le chemin recommandé
 
-Si vous débutez, suivez les pages dans cet ordre :
+Suivez les pages dans cet ordre :
 
-1. [DÉMARRER : Le parcours pas à pas](Docs/DEMARRER.md)
-2. [LES BASES : Docker, dossiers et réseau](Docs/BASES.md)
-3. [LES APPS : Le rôle de chaque application](Docs/APPLICATIONS.md)
-4. [VIDEO : Les bases pour choisir les bonnes releases](Docs/VIDEO.md)
-5. [CHECKLIST : Vérifier que tout fonctionne](Docs/CHECKLIST.md)
-6. [OPTIMISER : Profils, Custom Formats et règles](Docs/OPTIMISER.md)
-7. [FAQ : Torrents, ratio et port forwarding](Docs/FAQ.md)
+1. [Démarrer pas à pas](Docs/01-demarrer.md)
+2. [Bases : Docker, dossiers et réseau](Docs/02-bases.md)
+3. [Applications : qui fait quoi ?](Docs/03-applications.md)
+4. [Vidéo : comprendre les releases](Docs/04-video.md)
+5. [Checklist : vérifier l'installation](Docs/05-checklist.md)
+6. [Optimiser : profils, Custom Formats et règles](Docs/06-optimiser.md)
+7. [FAQ torrents](Docs/07-faq-torrents.md)
 
-Annexe utile en cas de problème :
-
-- [NOTIONS : Réseau et hardlinks en pratique](Docs/NOTIONS.md)
-
-## Pour aller vite
-
-La base d’un serveur Servarr propre :
-
-- **qBittorrent** télécharge
-- **Prowlarr** trouve les torrents
-- **Radarr** gère les films
-- **Sonarr** gère les séries
-- **Plex ou Jellyfin** lit les médias
-- **Jellyseerr / Overseerr / Seerr** permet aux utilisateurs de faire des demandes
-
-Les outils comme Maintainerr, Cleanupparr, Cross-seed ou Profilarr sont utiles, mais ils viennent après.
-
-## Avant de commencer
-
-Il faut idéalement :
-
-- une machine allumée souvent ou H24
-- un disque avec assez d’espace
-- Docker ou une interface qui gère les conteneurs
-- un dossier commun pour les téléchargements et la bibliothèque
-- un tracker/indexer configuré dans Prowlarr
-- si vous utilisez des trackers privés : comprendre le ratio et le port forwarding
-
-## Idée générale
+## Le principe en une minute
 
 ```text
 Utilisateur
-   ↓ demande un film ou une série
+↓
 Seerr / Jellyseerr / Overseerr
-   ↓ envoie la demande
+↓
 Radarr / Sonarr
-   ↓ cherche via
+↓
 Prowlarr
-   ↓ envoie le torrent à
+↓
 qBittorrent
-   ↓ télécharge dans /data/downloads
-Radarr / Sonarr
-   ↓ range via hardlink dans /data/library
-Plex / Jellyfin
-   ↓ lit le fichier
-Utilisateur
+↓
+Radarr / Sonarr range dans /data/library
+↓
+Plex / Jellyfin lit le fichier
 ```
 
 Si cette chaîne est claire, le reste du guide devient beaucoup plus simple.

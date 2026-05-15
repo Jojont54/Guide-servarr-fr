@@ -1,4 +1,4 @@
-# **VIDEO : Les bases pour Servarr**
+# **Vidéo : comprendre les releases**
 
 Quand on configure Radarr/Sonarr, on ne choisit pas seulement une résolution.
 On choisit un compromis entre **qualité**, **taille**, **compatibilité**, **stockage** et **transcodage**.

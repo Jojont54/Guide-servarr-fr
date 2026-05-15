@@ -1,12 +1,10 @@
-# **LES APPS : Le rôle de chaque application**
+# **Applications : qui fait quoi ?**
 
 Un serveur Servarr n’est pas une seule application.
 C’est une chaîne.
 
 Chaque app a un rôle précis.
 Quand on comprend le chemin d’un film ou d’une série, les réglages deviennent beaucoup plus logiques.
-
-![Servarr](../Images/Servarr.jpg)
 
 ## Le chemin d’un média
 
@@ -114,7 +112,7 @@ Séries → /data/library/series
 ```
 
 Objectif : avoir le plus possible de lecture directe, sans transcodage.
-La page [VIDEO](VIDEO.md) explique les notions importantes pour ça.
+La page [Vidéo](04-video.md) explique les notions importantes pour ça.
 
 ### Seerr / Jellyseerr / Overseerr : demander
 
@@ -143,7 +141,7 @@ C’est pratique pour appliquer rapidement une configuration cohérente.
 Repo DB FR :
 [Profilarr-database-french-regex](https://github.com/Jojont54/Profilarr-database-french-regex)
 
-Si vous ne voulez pas utiliser Profilarr, vous pouvez appliquer les YAML manuellement depuis [OPTIMISER](OPTIMISER.md).
+Si vous ne voulez pas utiliser Profilarr, vous pouvez appliquer les YAML manuellement depuis [Optimiser](06-optimiser.md).
 
 ### Maintainerr : supprimer intelligemment
 
