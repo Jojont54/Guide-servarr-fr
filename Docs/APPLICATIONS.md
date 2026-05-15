@@ -23,7 +23,6 @@ Outils d’optimisation du seeding qui détectent des correspondances entre torr
 
 Autre outils intéressant à ajouter à la config :  
 
-\- **Maintainerr-overlay-helperr** \--\> pour les utilisateurs de Plex ajoute une catégorie "part bientôt" et ajoute un compteur à l'affiche  
 \- **Tautulli** \--\> pour les utilisateurs de Plex, un dashboard  
 \- **Homarr** \--\> dashboard pour les utilisateurs du serveurs  
 \- **Wizarr** \--\> pour les utilisateurs de Plex, simplifie les invitations
