@@ -1,11 +1,33 @@
 # **OPTIMISER : Les YAML**
 
+Cette page arrive après l'installation de base.
+Avant de toucher aux profils, vérifiez que la chaîne fonctionne déjà :
+
+```text
+demande → recherche → téléchargement → import → lecture
+```
+
+Si Radarr/Sonarr n'importent pas correctement, ou si les chemins ne sont pas propres, corrigez ça avant d'optimiser les qualités.
+
 Si vous ne voulez pas utiliser **Profilarr**, vous pouvez appliquer les YAML ci-dessous manuellement. Sinon, vous pouvez utiliser mon repo DB FR pour Profilarr : [Profilarr-database-french-regex](https://github.com/Jojont54/Profilarr-database-french-regex)  
 
 Adaptation des Custom-Formats de Pandaarr (sans problème d’espace, ni de transcodage)  
 [https://github.com/Pandaarr/arr-custom-formats](https://github.com/Pandaarr/arr-custom-formats)
 
 Différentes RULES **Maintainerr** sont disponible directement dans l'app si vous le souhaitez, mais je vous propose mes règles avec des explications. 
+
+## Ce que cette page configure
+
+Les YAML ci-dessous servent à mieux guider Radarr/Sonarr dans le choix des releases :
+
+- préférer le MULTi quand il est disponible
+- accepter le français simple si nécessaire
+- éviter les versions québécoises si ce n'est pas souhaité
+- accepter la VOSTFR comme solution de secours
+- éviter les mauvais choix qui provoquent trop d'upgrades ou de transcodage
+
+Pour un débutant, le plus simple est d'utiliser Profilarr avec le repo DB FR.
+Les YAML restent disponibles pour ceux qui veulent comprendre ou appliquer la configuration à la main.
 
 ## Custom format (Les mêmes pour sonarr et radarr)
 

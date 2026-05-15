@@ -1,109 +1,228 @@
-# **LES APPS : A quoi elles servent**
+# **LES APPS : Le rôle de chaque application**
+
+Un serveur Servarr n’est pas une seule application.
+C’est une chaîne.
+
+Chaque app a un rôle précis.
+Quand on comprend le chemin d’un film ou d’une série, les réglages deviennent beaucoup plus logiques.
 
 ![Servarr](../Images/Servarr.jpg)
 
-**Overseerr / Jellyseerr (bientôt remplacé par Seerr)**  
-Application utilisateur permettant de récolter les demandes d’ajout de films et de séries sur le serveur, avec validation, suivi de statut et intégration à Radarr et Sonarr.  
-**Plex / Jellyfin**  
-Serveur multimédia qui indexe les contenus téléchargés et permet leur lecture en streaming sur tous les appareils (TV, mobile, navigateur, etc.).  
-**Radarr**  
-Gestionnaire de films qui surveille les films demandés, interroge les indexeurs via Prowlarr, envoie les téléchargements à qBittorrent, puis organise automatiquement les fichiers une fois téléchargés. Utilise des Hardlinks pour que les fichiers soit lisible par Plex / Jellyfin  
-**Sonarr**  
-Gestionnaire de séries TV qui suit les épisodes et saisons, recherche automatiquement les nouvelles sorties, déclenche les téléchargements via Prowlarr et qBittorrent, puis classe les fichiers pour Plex/Jellyfin. (Identique a Radarr pour les séries TV)  
-**Prowlarr**  
-Moteur central d’indexeurs qui communique avec les trackers (publics ou privés) et fournit à Radarr, Sonarr et autres applications une source unifiée pour rechercher des torrents ou NZB.  
-**qBittorrent**  
-Client BitTorrent qui télécharge réellement les fichiers à partir des torrents fournis par Prowlarr et gère le seeding une fois le téléchargement terminé.  
-**Maintainerr**  
-Outil de gestion et de purge de la médiathèque qui analyse Plex/Jellyfin (contenus non vus, peu populaires, trop anciens, etc.) et peut demander à Sonarr/Radarr de supprimer certains médias.  
-**Cleanupparr**  
-Outil d’automatisation du nettoyage côté téléchargement qui supprime ou gère les torrents et fichiers devenus inutiles (seed trop long, échecs, doublons, orphelins) dans qBittorrent. Vérifie que les hardlinks existe dans la bibliothèque.  
-**Cross-seed / QUI**  
-Outils d’optimisation du seeding qui détectent des correspondances entre torrents (même contenu, hashes compatibles) pour ajouter automatiquement des torrents supplémentaires et maximiser le ratio sans re-télécharger sur d'autres tracker que celui d'origine (pas accepté par tout les trackers)
+## Le chemin d’un média
 
-Autre outils intéressant à ajouter à la config :  
-
-\- **Tautulli** \--\> pour les utilisateurs de Plex, un dashboard  
-\- **Homarr** \--\> dashboard pour les utilisateurs du serveurs  
-\- **Wizarr** \--\> pour les utilisateurs de Plex, simplifie les invitations
-\- **Profilarr** \--\> gestion des profils qualité et Custom Formats de Sonarr/Radarr depuis une base GitHub, pour appliquer rapidement une configuration cohérente. Repo DB FR : https://github.com/Jojont54/Profilarr-database-french-regex
-
-## **Configuration**
-
-[Lien vers la vidéo de OptiNAS pour la config](https://www.youtube.com/watch?v=gQ56YY4Y56o)
-
-Cette vidéo explique tout.
-
-### Création des dossiers
+```text
+Demande utilisateur
+↓
+Seerr / Jellyseerr / Overseerr
+↓
+Radarr ou Sonarr
+↓
+Prowlarr
+↓
+qBittorrent
+↓
+Radarr ou Sonarr
+↓
+Plex ou Jellyfin
 ```
-data
-├── downloads
-│     ├── torrents
-│     └── cross-seed
-└── library
-	├── movies
-﻿	└── series
+
+Exemple concret :
+
+1. Un utilisateur demande un film.
+2. Seerr envoie la demande à Radarr.
+3. Radarr cherche une release via Prowlarr.
+4. Prowlarr interroge les trackers.
+5. Radarr choisit une release et l’envoie à qBittorrent.
+6. qBittorrent télécharge dans `/data/downloads`.
+7. Radarr importe le fichier dans `/data/library/movies`.
+8. Plex/Jellyfin détecte le film et le rend disponible.
+
+Pour les séries, c’est la même logique avec Sonarr.
+
+## Les applications indispensables
+
+### qBittorrent : télécharger
+
+qBittorrent est le client BitTorrent.
+Il reçoit les torrents envoyés par Radarr/Sonarr, télécharge les fichiers et continue à seed.
+
+À retenir :
+
+- il doit télécharger dans `/data/downloads/torrents`
+- il doit être accessible par Radarr et Sonarr
+- sur tracker privé, le port forwarding est très important
+
+### Prowlarr : trouver
+
+Prowlarr centralise les indexers/trackers.
+Au lieu de configurer les trackers séparément dans Radarr et Sonarr, on les configure dans Prowlarr.
+
+À retenir :
+
+- Prowlarr ne télécharge rien
+- il fournit les résultats de recherche
+- il peut synchroniser les indexers vers Radarr/Sonarr
+
+### Radarr : organiser les films
+
+Radarr gère les films.
+
+Il sait :
+
+- surveiller les films demandés
+- chercher une release
+- envoyer le téléchargement à qBittorrent
+- importer le fichier terminé
+- renommer et ranger dans la bibliothèque
+- améliorer la qualité si une meilleure release apparaît
+
+Dossier conseillé :
+
+```text
+/data/library/movies
 ```
-Il est conseillé d'installer toute les applications avec un accès a /data
 
-### Ordre d’installation recommandé
+### Sonarr : organiser les séries
 
-Des outils permettent de simplifier l'installation comme l'interface graphique de TrueNAS, de Unraid, de Ultra.cc, sur un PC linux Dockstater et Saltbox
+Sonarr fait le même travail que Radarr, mais pour les séries.
 
-**qBittorrent →**📥 Télécharger  
-(optionnel) VPN → Gluetun ou une stack qBittorrent avec VPN intégré  
-Redirection de port OBLIGATOIRE (Avec ou sans VPN)
+Il sait :
 
-**Prowlarr →** 🔎 Trouver  
-Liste des indexers (tracker)  
-Configuration de la synchronisation au app Radarr/Sonarr/etc.
+- suivre les saisons et épisodes
+- chercher automatiquement les nouveaux épisodes
+- envoyer les téléchargements à qBittorrent
+- importer et ranger les épisodes
+- gérer les upgrades de qualité
 
-**Radarr et Sonarr →** 🧠 Organiser  
-Page à configurer :   
-Download clients  
-→ ajouter qbittorent (adresse \+ port \+ user \+ password)  
-General  
-→ On retrouve l’apikey pour prowlarr, seerr, etc.  
-Custom formats  
-→ https://github.com/Pandaarr/arr-custom-formats
+Dossier conseillé :
 
-**Plex / Jellyfin →** 📺 Lire  
-Configurer les bibliothèques
-
-**Seerr →** 👤 Utiliser  
-Au démarrage demande la configuration :   
-Sonarr et Radarr et Plex ou Jellyfin
-
-### (Optionnel) Gestion automatique de la suppression et optimisation
-
-**Maintainerr →** 🧹 Supprimer  
-Connexion à Plex ou Jellyfin, Sonarr, Radarr et Seerr  
-→ Configuration des Rules (“ajoute dans la corbeille si”)
-
-**Cleanupparr →** 🧹 Supprimer  
-Connexion à Sonarr, Radarr, qBittorrent  
-→ Configuration de Download Cleaner (supprimé le seed automatiquement si plus dans la bibliothèque)
-
-**Cross-seed →** 🌱​ Optimiser  
-Lors de la création du conteneur, un fichier config.js se créé dans appdata, il faut le modifier  
-→ Configuration de Torznab
+```text
+/data/library/series
 ```
-    torznab: [
-        "http://prowlarr:9696/1/api?apikey=12345",
-        "http://prowlarr:9696/2/api?apikey=12345",
-    ],
+
+### Plex / Jellyfin : lire
+
+Plex et Jellyfin sont les serveurs multimédias.
+Ils ne cherchent pas les torrents et ne rangent pas les fichiers.
+Ils lisent simplement ce que Radarr/Sonarr ont organisé.
+
+Bibliothèques conseillées :
+
+```text
+Films  → /data/library/movies
+Séries → /data/library/series
 ```
-→ Configuration de Sonarr / Radarr / qbittorent
-```
-    sonarr: ["http://sonarr:8989/?apikey=12345"],
-    radarr: ["http://radarr:7878/?apikey=12345"],
-    torrentClients: ["qbittorrent:http://user:pass@qbittorent:8080"],
-```
-→ Ensuite, pour éviter un ban sur les trackers, il vaut mieux ralentir la recherche
-```
-    rssCadence: "2 hours",
-    searchCadence: "1 day",
-    snatchTimeout: "30 seconds",
-    searchTimeout: "2 minutes",
-    searchLimit: 400,
-```
+
+Objectif : avoir le plus possible de lecture directe, sans transcodage.
+La page [VIDEO](VIDEO.md) explique les notions importantes pour ça.
+
+### Seerr / Jellyseerr / Overseerr : demander
+
+Ces applications donnent une interface simple aux utilisateurs.
+
+Elles permettent de :
+
+- chercher un film ou une série
+- faire une demande
+- envoyer la demande à Radarr ou Sonarr
+- voir si le média est disponible
+
+Aujourd’hui, Jellyseerr/Overseerr sont très utilisés.
+Seerr arrive comme remplaçant moderne.
+
+## Les applications utiles ensuite
+
+Ces apps ne sont pas nécessaires pour démarrer.
+Ajoutez-les quand la base fonctionne.
+
+### Profilarr : appliquer des profils
+
+Profilarr permet de gérer les profils qualité et les Custom Formats de Sonarr/Radarr depuis une base GitHub.
+C’est pratique pour appliquer rapidement une configuration cohérente.
+
+Repo DB FR :
+[Profilarr-database-french-regex](https://github.com/Jojont54/Profilarr-database-french-regex)
+
+Si vous ne voulez pas utiliser Profilarr, vous pouvez appliquer les YAML manuellement depuis [OPTIMISER](OPTIMISER.md).
+
+### Maintainerr : supprimer intelligemment
+
+Maintainerr analyse Plex/Jellyfin, Radarr, Sonarr et Seerr pour décider quoi nettoyer.
+
+Exemples :
+
+- supprimer un film demandé mais jamais regardé après plusieurs mois
+- garder un média seulement 30 jours après visionnage
+- protéger certains contenus avec un tag `perma`
+- gérer des overlays directement depuis Maintainerr
+
+### Cleanupparr : nettoyer les téléchargements
+
+Cleanupparr s’occupe surtout du côté téléchargement.
+Il peut supprimer ou gérer les torrents devenus inutiles :
+
+- torrents orphelins
+- fichiers qui ne sont plus dans la bibliothèque
+- échecs
+- doublons
+- seed terminé selon vos règles
+
+Il aide à garder qBittorrent propre.
+
+### Cross-seed / QUI : optimiser le ratio
+
+Cross-seed cherche des torrents équivalents à ce que vous avez déjà.
+Le but est d’ajouter le même contenu sur d’autres trackers sans retélécharger.
+
+Avantage :
+
+- plus de seed
+- meilleur ratio
+- moins de téléchargement inutile
+
+Attention :
+
+- tous les trackers n’acceptent pas les mêmes usages
+- il faut lire les règles des trackers
+- il vaut mieux limiter les recherches pour éviter les abus
+
+### Tautulli
+
+Tautulli est utile pour Plex.
+Il permet de suivre :
+
+- qui regarde quoi
+- depuis quel appareil
+- si la lecture est directe ou transcodée
+- les statistiques d’usage
+
+### Homarr
+
+Homarr sert à créer un dashboard.
+Pratique pour regrouper les liens vers toutes les applications du serveur.
+
+### Wizarr
+
+Wizarr simplifie les invitations Plex.
+Utile si vous partagez votre serveur avec plusieurs utilisateurs.
+
+## Ordre d’installation recommandé
+
+Pour éviter de se perdre :
+
+1. qBittorrent
+2. Prowlarr
+3. Radarr
+4. Sonarr
+5. Plex ou Jellyfin
+6. Seerr / Jellyseerr / Overseerr
+7. Profilarr ou configuration manuelle des profils
+8. Maintainerr, Cleanupparr, Cross-seed
+
+## Résumé
+
+Si vous devez retenir une phrase :
+
+**Prowlarr trouve, qBittorrent télécharge, Radarr/Sonarr organisent, Plex/Jellyfin lit, Seerr permet aux utilisateurs de demander.**
+
+Le reste sert à améliorer, nettoyer ou automatiser.

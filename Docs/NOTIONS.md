@@ -1,87 +1,139 @@
-# **QUELQUES NOTIONS : Réseau & Hardlink**
+# **NOTIONS : Réseau et hardlinks en pratique**
 
-## Réseau
+Cette page sert surtout quand quelque chose ne marche pas :
 
-**Chaque machine a une adresse.**
+- une application n’arrive pas à joindre une autre
+- Radarr/Sonarr n’importent pas
+- les fichiers sont copiés au lieu d’être hardlinkés
+- Plex/Jellyfin ne voit pas les médias
 
-192.168.1.10 → IP de ta machine / NAS
+Pour le parcours principal, commencez plutôt par [DÉMARRER](DEMARRER.md).
 
-**Chaque application a un port.** 
+## Quand une app doit parler à une autre
 
-192.168.1.10:8080 → IP \+ Port de l’application
+Chaque application a une interface web accessible avec :
 
-Permet par exemple d'accéder à l’interface graphique si elle existe dans un navigateur:
+```text
+IP de la machine + port
+```
 
-[http://192.168.1.10:8080](http://192.168.1.10:8080)
+Exemples depuis votre navigateur :
 
-**API Key (clé d’accès)**
+```text
+http://192.168.1.10:8080  → qBittorrent
+http://192.168.1.10:9696  → Prowlarr
+http://192.168.1.10:7878  → Radarr
+http://192.168.1.10:8989  → Sonarr
+```
 
-Certaines applications demandent une **clé API** → C’est comme un mot de passe entre applications.
+Mais entre conteneurs Docker, on utilise souvent le nom du conteneur :
 
-**Docker crée un réseau automatiquement**
+```text
+http://qbittorrent:8080
+http://prowlarr:9696
+http://radarr:7878
+http://sonarr:8989
+```
 
-Quand on utilise Docker Compose :
+Exemple :
 
-tous les services sont sur le **même réseau**
+Dans Sonarr, pour connecter qBittorrent :
 
-donc ils peuvent se parler directement 
+```text
+Host : qbittorrent
+Port : 8080
+```
 
-192.168.1.10:8080 depuis l’exterieur du réseau peut devenir qbittorrent:8080 dans le réseau
+Si ça ne marche pas, vérifiez :
 
-**Exemple concret**
+- les deux conteneurs sont démarrés
+- ils sont sur le même réseau Docker
+- le nom du conteneur est correct
+- le port interne est correct
+- l’identifiant et le mot de passe sont corrects
 
-Dans Sonarr :
+## API Key
 
-* URL : `http://qbittorrent:8080`  
-* API Key : `xxxxxxxx`
+Une API Key est une clé d’accès entre applications.
 
-→ permet à Sonarr de :
+Elle permet par exemple :
 
-* ajouter des téléchargements  
-* contrôler partiellement qBittorrent  
-* trier les téléchargements dans le dossier bibliothèque
+- à Prowlarr d’envoyer les indexers à Radarr/Sonarr
+- à Seerr d’envoyer une demande à Radarr/Sonarr
+- à Cross-seed de consulter Radarr/Sonarr/Prowlarr
+
+Dans Radarr/Sonarr, elle se trouve généralement dans :
+
+```text
+Settings → General → Security
+```
+
+Si une application refuse de se connecter alors que l’adresse est bonne, vérifiez l’API Key.
 
 ## Hardlink
 
-Un hardlink, c’est : Un second nom (ou chemin) qui pointe vers le même fichier physique.
+Un hardlink permet d’avoir le même fichier visible à deux endroits.
 
-Tu as un fichier :
+Exemple :
 
-/downloads/film.2000.1080p.ACC.nom.a.ralonge.mkv
+```text
+/data/downloads/torrents/Film.2024.mkv
+/data/library/movies/Film (2024)/Film (2024).mkv
+```
 
-Tu crées un hardlink :
+Le fichier reste seedable dans qBittorrent, mais il est aussi rangé proprement pour Plex/Jellyfin.
 
-/movies/film \- 2000.mkv
+Important :
 
-Résultat :
+- ce n’est pas une copie
+- ce n’est pas un raccourci
+- l’espace disque n’est utilisé qu’une fois
 
-* Ce n’est PAS une copie  
-* Ce n’est PAS un raccourci
+## Conditions pour que les hardlinks marchent
 
-C’est **le même fichier**, accessible à deux endroits
+Les hardlinks ont besoin de chemins cohérents.
 
-→ Tu seed le fichier, il est disponible et rangé ailleurs mais l’espace est consommé une fois \!
+Bon principe :
 
-Les conditions pour que ça marche : TRÈS IMPORTANT  
-Même disque / même filesystem
+```text
+qBittorrent → /data
+Radarr      → /data
+Sonarr      → /data
+```
 
-/mnt/user/data/downloads
+Mauvais principe :
 
-/mnt/user/data/library
+```text
+qBittorrent → /downloads
+Radarr      → /movies
+Sonarr      → /series
+```
 
-L’application doit avoir accès au 2, dans le même filesystem 
+Même si les dossiers pointent vers le bon endroit côté machine, les applications ne voient pas les mêmes chemins.
+Ça complique les imports et peut casser les hardlinks.
 
-→ Plutôt que de donner à sonarr :
+## Symptômes fréquents
 
-- /mnt/user/data/downloads → /download  
-- /mnt/user/data/library → /library
+**Le téléchargement est terminé, mais Radarr/Sonarr n’importe pas**  
+Vérifiez les chemins.
+Radarr/Sonarr doivent voir le fichier au même endroit que qBittorrent.
 
-**On donne accès à /mnt/user/data/** ou on crée un sous-dossier (par exemple /mnt/user/data/streaming) contenant download et library.
+**Radarr/Sonarr copie le fichier au lieu de faire un hardlink**  
+Vérifiez que `/downloads` et `/library` sont sur le même disque/filesystem.
+Vérifiez aussi que Radarr/Sonarr ont bien accès au dossier parent `/data`.
+
+**Plex/Jellyfin ne voit pas le film**  
+Vérifiez que Radarr/Sonarr importent bien dans `/data/library`.
+Puis relancez une analyse de bibliothèque.
+
+**Prowlarr ne synchronise pas avec Radarr/Sonarr**  
+Vérifiez l’adresse, le port et l’API Key.
 
 ## Résumé
 
-Chaque app demandera l'accès au apps voisines via IP, port et APIkey.   
-Chaque app a besoin d’espace sur le disque pour faire son travail: 
+Pour éviter 80 % des problèmes :
 
-- ses données propres (appdata), base de données, etc.  
-- les données sur le disque (library, download), pour le traitement
+- donnez le même `/data` à qBittorrent, Radarr et Sonarr
+- utilisez les noms de conteneurs pour connecter les apps entre elles
+- gardez les API Keys sous la main
+- vérifiez les chemins avant de toucher aux profils qualité

@@ -32,6 +32,30 @@ AirVPN
 **À éviter pour cet usage :**  
 les VPN sans port forwarding (ex : NordVPN)  
 
+## Comment utiliser le VPN avec qBittorrent ?
+
+Le plus propre est d'utiliser un conteneur qui intègre directement qBittorrent, le VPN et un kill switch.
+
+Exemple :
+
+`binhex-qbittorrentVPN`
+
+Pourquoi c'est pratique :
+
+- qBittorrent passe par le VPN
+- si le VPN tombe, le kill switch bloque le trafic torrent
+- les autres apps restent accessibles normalement sur le réseau local
+- on évite de mettre tout le serveur derrière le VPN
+
+À éviter :
+
+- lancer qBittorrent sans kill switch
+- mettre Radarr/Sonarr/Prowlarr derrière le VPN sans besoin clair
+- choisir un VPN sans port forwarding si vous utilisez des trackers privés
+
+Le VPN protège la sortie torrent.
+Il ne remplace pas un bon ratio, un port ouvert et le respect des règles du tracker.
+
 ## Pourquoi c’est important le port forwarding ?
 
 Sur BitTorrent, il existe une différence essentielle :  

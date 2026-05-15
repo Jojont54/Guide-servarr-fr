@@ -1,137 +1,246 @@
-# **LES BASES : Machine virtuel et Docker**
+# **LES BASES : Docker, dossiers et réseau**
 
-## Machine virtuelle
+Avant de configurer Radarr, Sonarr ou Prowlarr, il faut comprendre trois choses :
 
-Une **machine virtuelle (VM)**, c’est : Un ordinateur complet simulé à l’intérieur de ton ordinateur
+- les applications tournent dans des conteneurs
+- les conteneurs doivent accéder aux bons dossiers
+- les applications doivent pouvoir se parler sur le réseau
 
-Elle possède :
+Si ces trois points sont propres, le reste devient beaucoup plus simple.
 
-* son propre système d’exploitation (Windows, Linux…)  
-* son CPU, RAM, disque (virtuels)  
-* son réseau 
+## Pourquoi Docker ?
 
-On utilise une VM quand on veut :
+Un serveur Servarr utilise plusieurs applications.
+On pourrait tout installer directement sur la machine, mais ce serait vite difficile à maintenir.
 
-* Tester un OS (Linux, Windows…)  
-* Isoler un environnement  
-* Faire du dev propre  
-* Simuler un serveur  
-* Lancer un OS différent (ex: Linux sur Windows)
+Docker permet de lancer chaque application dans son propre conteneur :
 
-Nous voulons **isoler les apps** mais les VM ont des limites :
+- qBittorrent dans un conteneur
+- Prowlarr dans un conteneur
+- Radarr dans un conteneur
+- Sonarr dans un conteneur
+- Plex ou Jellyfin dans un conteneur
 
-* Lourd (RAM \+ CPU)  
-* Lent à démarrer  
-* Duplique un OS entier  
-* Peu pratique pour multiplier les services
+Un conteneur, c’est une application isolée avec ce dont elle a besoin pour fonctionner.
+Il ne contient pas un système complet comme une machine virtuelle, donc c’est plus léger.
 
-C’est pour ça que Docker existe 
+## VM ou Docker ?
 
-## Docker
+Une machine virtuelle simule un ordinateur complet.
+C’est utile pour isoler un système entier, mais c’est plus lourd.
 
-**Docker** est une plateforme pour lancer des applications dans des conteneurs isolés
+Pour un serveur Servarr, Docker est généralement plus adapté :
 
-Un conteneur \= une app \+ tout ce dont elle a besoin pour fonctionner
+- plus léger
+- plus rapide à redémarrer
+- plus facile à sauvegarder
+- plus simple pour multiplier les applications
 
-Mais pas d’OS complet, utilise l’OS hôte.
+La VM peut rester utile si vous voulez isoler tout le serveur dans une machine dédiée.
+Mais à l’intérieur, les applications peuvent quand même tourner avec Docker.
 
-Docker est donc idéal :
+## Ce qu’un conteneur doit recevoir
 
-* Très rapide à démarrer  
-* Léger (pas d’OS à dupliquer)  
-* Facile à reproduire  
-* Chaque app est isolée des autres
+Quand on crée un conteneur, on lui donne surtout :
 
-Configuration d’un app dans docker → docker compose
+**Des ports**  
+Ils permettent d’ouvrir l’interface web ou de connecter les applications entre elles.
 
-La configuration contient : 
+Exemple :
 
-* **Les volumes** → Pour stocker les données  
-  * films  
-  * base de données  
-  * fichiers utilisateurs
+```text
+192.168.1.10:8989 → Sonarr
+192.168.1.10:7878 → Radarr
+192.168.1.10:9696 → Prowlarr
+```
 
-Sans volume → les données sont perdues si le conteneur est recréé. 
+**Des volumes**  
+Ils permettent au conteneur d’accéder à des dossiers de la machine.
 
-L’app est isolée du système, le volume permet de donner accès à des dossiers, des fichiers à l'application. 
+Exemple :
 
-Dossier dans l’OS → Dossier dans l’app
+```text
+/mnt/user/data → /data
+```
 
-`/mnt/user/data/mes-photos → /photos`
+À gauche : le dossier réel sur la machine.  
+À droite : le chemin vu par l’application dans le conteneur.
 
-* **Les ports** → Accès réseau de l’app
+**Des variables d’environnement**  
+Elles règlent certains paramètres :
 
-pour accéder à l’application (interface web) ou connecter 2 apps entre-elles
+- fuseau horaire
+- utilisateur
+- groupe
+- mot de passe
+- options de démarrage
 
-`192.168.1.10:8080`
+Exemple :
 
-* **L'environnement (Variables) →** Paramètres de configuration  
-  * mot de passe  
-  * fuseau horaire  
-  * utilisateur
+```text
+TZ=Europe/Paris
+PUID=1000
+PGID=1000
+```
 
-`USER_PASSWORD = UnMDPderêve`
+## Le dossier le plus important : /data
 
-## Docker compose
+La règle simple :
 
-**Docker Compose** est un outil permettant de **définir et lancer un ou plusieurs conteneurs Docker**.  
-Il utilise un fichier **.yaml** qui décrit :
+**qBittorrent, Radarr et Sonarr doivent partager le même dossier `/data`.**
 
-- les conteneurs à lancer  
-- leur configuration (ports, volumes, variables d’environnement)  
-- leurs interactions (réseau, dépendances)  
+Exemple conseillé :
 
-Chaque application est **isolée du système** et n’a accès qu’aux ressources qu’on lui autorise (dossiers, réseau, paramètres, etc.).
+```text
+/mnt/user/data
+├── downloads
+│   ├── torrents
+│   └── cross-seed
+└── library
+    ├── movies
+    └── series
+```
 
-Une analogie simple : lors de l’installation d’un logiciel sur Windows, une fenêtre de configuration apparaît, et on clique souvent sur “Suivant” sans trop réfléchir.  
-Le fichier `.yaml` remplace cette étape… **mais de manière écrite, reproductible et modifiable à tout moment**.
+Dans les conteneurs, on monte ce dossier comme ça :
 
-Docker Compose permet ainsi de **recréer exactement la même application en une seule commande**.  
-En sauvegardant ses fichiers `.yaml`, on dispose en pratique d’un **backup de la configuration de ses applications**.
+```text
+/mnt/user/data → /data
+```
 
-> Cela ne sauvegarde pas les données (fichiers, bases de données), uniquement la configuration.
+Ensuite :
+
+- qBittorrent télécharge dans `/data/downloads/torrents`
+- Radarr range les films dans `/data/library/movies`
+- Sonarr range les séries dans `/data/library/series`
+- Plex/Jellyfin lit `/data/library`
+
+## Pourquoi c’est si important ?
+
+Radarr et Sonarr ne téléchargent pas eux-mêmes.
+Ils demandent à qBittorrent de télécharger, puis ils importent le fichier dans la bibliothèque.
+
+Si les chemins sont cohérents, ils peuvent créer un **hardlink**.
+
+Un hardlink permet d’avoir :
+
+- le fichier dans le dossier de téléchargement pour continuer à seed
+- le même fichier rangé dans la bibliothèque pour Plex/Jellyfin
+- sans doubler l’espace disque
+
+Exemple :
+
+```text
+/data/downloads/torrents/Film.2024.1080p.mkv
+/data/library/movies/Film (2024)/Film (2024).mkv
+```
+
+Ces deux chemins peuvent pointer vers le même fichier physique.
+
+## Erreur classique à éviter
+
+Mauvais montage :
+
+```text
+qBittorrent : /mnt/user/data/downloads → /downloads
+Radarr      : /mnt/user/data/library/movies → /movies
+Sonarr      : /mnt/user/data/library/series → /series
+```
+
+Chaque application voit un monde différent.
+Les imports peuvent marcher, mais les hardlinks risquent de casser ou les chemins deviennent pénibles à corriger.
+
+Meilleur montage :
+
+```text
+qBittorrent : /mnt/user/data → /data
+Radarr      : /mnt/user/data → /data
+Sonarr      : /mnt/user/data → /data
+Plex/Jellyfin : /mnt/user/data/library → /data/library
+```
+
+Toutes les apps parlent le même langage.
+
+## Réseau entre applications
+
+Depuis votre navigateur, vous utilisez souvent l’IP de la machine :
+
+```text
+http://192.168.1.10:8989
+```
+
+Mais entre conteneurs Docker, les applications peuvent souvent s’appeler par leur nom :
+
+```text
+http://qbittorrent:8080
+http://prowlarr:9696
+http://radarr:7878
+http://sonarr:8989
+```
+
+Exemple dans Sonarr pour ajouter qBittorrent :
+
+```text
+Host : qbittorrent
+Port : 8080
+```
+
+Si vous utilisez une interface comme Unraid, TrueNAS, Synology, Portainer, Dockstarter ou Ultra.cc, le principe reste le même.
+Seule l’interface change.
+
+## API Key
+
+Une API Key est une clé qui permet à deux applications de communiquer.
+
+Exemples :
+
+- Prowlarr utilise l’API Key de Radarr pour lui envoyer les indexers
+- Seerr utilise l’API Key de Sonarr/Radarr pour envoyer les demandes
+- Cross-seed utilise les API Keys pour interroger les applications
+
+Ce n’est pas un mot de passe utilisateur classique.
+C’est plutôt une clé d’accès entre applications.
+
+## Docker Compose
+
+Docker Compose permet de décrire un ou plusieurs conteneurs dans un fichier `.yaml`.
+
+Exemple simplifié pour Sonarr :
 
 ```yaml
-version: "3"
-
 services:
   sonarr:
     image: lscr.io/linuxserver/sonarr:latest
     container_name: sonarr
     restart: unless-stopped
-
     ports:
       - "8989:8989"
-
     environment:
       - PUID=1000
       - PGID=1000
       - TZ=Europe/Paris
-
     volumes:
       - /mnt/user/appdata/sonarr:/config
       - /mnt/user/data:/data
 ```
 
-Ici nous créons Sonarr, on lui donne un nom, on choisi le repo source, et quelques paramètres, puis on lui donne comme dit plus haut: 
-- du réseau (port)
-- un environement (PUID / PGID, droit accès en lecture ecriture)
-- des accès au disques / au fichiers, ici un dossier qui s'appellera /config dans l'app mais qui écrit sur /mnt/user/appdata/sonarr de notre ordinateur. Et le dossier /data
+Ce fichier dit :
 
-De nombreuses méthodes simplifie ce processus:
-- L'interface Docker de Unraid
-- Portainer.io
-- La bibliothèque app de Ultra.cc
-- Synology, QNAP, Ugreen, etc. 
+- quelle image utiliser
+- quel nom donner au conteneur
+- quel port ouvrir
+- où stocker la configuration
+- quels dossiers rendre accessibles
 
-Ces interfaces évitent d’écrire le fichier YAML à la main. Mais il est toujours possible d'utilise docker compose dans le terminal en ligne de commande.
+L’avantage : la configuration est écrite, sauvegardable et reproductible.
 
 ## Résumé
 
-On peut utiliser le VM ou Docker pour isoler les applications entre elles.   
-Dans notre usage nous allons isoler nos différents services et usages.
+Pour un setup Servarr propre :
 
-- Streaming  
-- Cloud  
-- Serveur minecraft  
-- etc
+- utilisez Docker ou une interface qui crée des conteneurs
+- donnez le même `/data` à qBittorrent, Radarr et Sonarr
+- gardez les configurations dans `/appdata`
+- utilisez les noms des conteneurs pour connecter les apps entre elles
+- récupérez les API Keys quand une application doit parler à une autre
+
+Une fois ces bases comprises, vous pouvez suivre le parcours dans [DÉMARRER](DEMARRER.md).
