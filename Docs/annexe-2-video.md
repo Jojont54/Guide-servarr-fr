@@ -1,4 +1,4 @@
-# **Vidéo : comprendre les releases**
+# **Annexe 2 : Vidéo, codecs et releases**
 
 Quand on configure Radarr/Sonarr, on ne choisit pas seulement une résolution.
 On choisit un compromis entre **qualité**, **taille**, **compatibilité**, **stockage** et **transcodage**.

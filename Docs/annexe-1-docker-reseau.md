@@ -1,4 +1,4 @@
-# **Bases : Docker, dossiers et réseau**
+# **Annexe 1 : Docker, dossiers et réseau**
 
 Avant de configurer Radarr, Sonarr ou Prowlarr, il faut comprendre trois choses :
 

@@ -37,7 +37,7 @@ L’idée importante :
 **qBittorrent, Radarr et Sonarr doivent voir le même dossier `/data`.**
 
 Exemple : `/mnt/user/data` sur la machine devient `/data` dans les conteneurs.
-Les détails sont expliqués dans [Bases : Docker, dossiers et réseau](02-bases.md).
+Les détails sont expliqués dans [l'annexe Docker, dossiers et réseau](annexe-1-docker-reseau.md).
 
 ## Étape 2 : Installer les applications de base
 
@@ -79,7 +79,7 @@ Cette approche évite de bricoler un VPN séparé au niveau de toute la machine.
 Le VPN reste limité au client torrent, pendant que Radarr, Sonarr, Prowlarr, Plex/Jellyfin et Seerr restent accessibles normalement sur le réseau local.
 Gluetun peut aussi faire le travail, mais il est plus compliqué à utiliser et à relier correctement aux autres conteneurs.
 
-Le détail est dans la [FAQ torrents](07-faq-torrents.md).
+Le détail est dans [l'annexe torrents, ratio et VPN](annexe-3-torrents.md).
 
 ## Étape 4 : Configurer Prowlarr
 
@@ -140,6 +140,7 @@ Si tout est bien rangé, vos contenus doivent apparaître automatiquement.
 
 Objectif : obtenir du **Direct Play** autant que possible.
 Si Plex/Jellyfin transcode tout, il faudra vérifier les codecs, l’audio, les sous-titres ou le débit réseau.
+Les notions utiles sont dans [l'annexe vidéo](annexe-2-video.md).
 
 ## Étape 8 : Ajouter Seerr / Jellyseerr / Overseerr
 
@@ -177,7 +178,9 @@ Si cette chaîne fonctionne, votre serveur est déjà utilisable.
 
 ## Étape 10 : Optimiser ensuite
 
-Quand la base est stable, vous pouvez améliorer :
+Quand la base est stable, passez à [Optimiser cette bonne base](02-optimiser-base.md).
+
+Vous pourrez améliorer :
 
 - les profils qualité
 - les Custom Formats
@@ -186,18 +189,7 @@ Quand la base est stable, vous pouvez améliorer :
 - le seeding
 - les demandes utilisateurs
 
-Outils utiles ensuite :
-
-- **Profilarr** : appliquer des profils et Custom Formats depuis une base GitHub
-- **Maintainerr** : supprimer automatiquement les médias selon des règles
-- **Cleanupparr** : nettoyer les téléchargements inutiles ou orphelins
-- **Cross-seed** : améliorer le ratio en ajoutant des torrents équivalents
-- **Tautulli** : suivre l’usage Plex
-- **Homarr** : créer un dashboard
-- **Wizarr** : simplifier les invitations Plex
-
-Pour Profilarr, vous pouvez utiliser ce repo DB FR :
-[Profilarr-database-french-regex](https://github.com/Jojont54/Profilarr-database-french-regex)
+Les outils utiles ensuite sont dans [Ajouter des applications](03-ajouter-applications.md).
 
 ## Résumé débutant
 

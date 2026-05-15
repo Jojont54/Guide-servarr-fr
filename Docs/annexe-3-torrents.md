@@ -1,4 +1,4 @@
-# **FAQ torrents**
+# **Annexe 3 : Torrents, ratio et VPN**
 
 ## Différence tracker public / privé ?
 
