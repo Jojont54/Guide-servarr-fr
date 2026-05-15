@@ -5,7 +5,16 @@ Elle sert à régler ce qui touche au nettoyage, au seeding et à l'entretien du
 
 À ce stade, la base doit déjà fonctionner : Radarr/Sonarr importent correctement, Plex/Jellyfin lit les fichiers, et qBittorrent conserve le seed.
 
+L'objectif de cette page est de transformer une stack qui fonctionne en stack qui reste propre dans le temps.
+On ne cherche plus seulement à télécharger et lire un média, mais à éviter l'accumulation de fichiers inutiles, protéger le ratio et automatiser les tâches répétitives.
+
+Les outils de cette partie peuvent supprimer ou déplacer des fichiers.
+Il vaut mieux les configurer progressivement, vérifier leur comportement, puis durcir les règles quand on est sûr du résultat.
+
 ## Cleanupparr
+
+Cleanupparr sert à éviter que qBittorrent devienne une zone de stockage oubliée.
+Après plusieurs imports, suppressions ou opérations de cross-seed, certains torrents peuvent rester présents alors qu'ils ne servent plus vraiment à la bibliothèque.
 
 Cleanupparr peut nettoyer les téléchargements terminés selon les règles de seed, mais aussi repérer les téléchargements qui n'ont plus de hardlink vers la médiathèque.
 La documentation officielle détaille cette partie ici : [Download Cleaner](https://cleanuparr.github.io/Cleanuparr/docs/configuration/download-cleaner/?unlinked-categories).

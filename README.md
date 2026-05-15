@@ -1,6 +1,18 @@
 # Guide Servarr FR
 
-Ce guide explique comment construire un serveur multimédia autour de la suite Arr, sans partir dans tous les sens :
+Ce guide s’adresse aux personnes qui veulent monter un serveur multimédia automatisé avec Radarr, Sonarr, Prowlarr, qBittorrent et Plex/Jellyfin, sans devoir apprendre toute la stack d’un coup.
+
+L’idée est simple : commencer par une base qui fonctionne, comprendre le rôle de chaque application, puis ajouter les optimisations seulement quand le serveur est stable.
+
+Ce n’est pas une documentation exhaustive de chaque outil.
+C’est un chemin de configuration pensé pour éviter les erreurs classiques : mauvais chemins Docker, imports cassés, absence de hardlinks, transcodage inutile, ratio qui ne monte pas ou torrents qui restent oubliés dans qBittorrent.
+
+Le guide avance donc en deux temps :
+
+- un parcours principal pour construire et améliorer le serveur
+- des annexes pour comprendre les notions quand vous avez besoin de creuser
+
+Au final, l’objectif est de construire un serveur capable de :
 
 - installer la base
 - connecter les services entre eux
