@@ -11,12 +11,12 @@ On ne cherche plus seulement à télécharger et lire un média, mais à éviter
 Les outils de cette partie peuvent supprimer ou déplacer des fichiers.
 Il vaut mieux les configurer progressivement, vérifier leur comportement, puis durcir les règles quand on est sûr du résultat.
 
-## Cleanupparr
+## Cleanuparr
 
-Cleanupparr sert à éviter que qBittorrent devienne une zone de stockage oubliée.
+Cleanuparr sert à éviter que qBittorrent devienne une zone de stockage oubliée.
 Après plusieurs imports, suppressions ou opérations de cross-seed, certains torrents peuvent rester présents alors qu'ils ne servent plus vraiment à la bibliothèque.
 
-Cleanupparr peut nettoyer les téléchargements terminés selon les règles de seed, mais aussi repérer les téléchargements qui n'ont plus de hardlink vers la médiathèque.
+Cleanuparr peut nettoyer les téléchargements terminés selon les règles de seed, mais aussi repérer les téléchargements qui n'ont plus de hardlink vers la médiathèque.
 La documentation officielle détaille cette partie ici : [Download Cleaner](https://cleanuparr.github.io/Cleanuparr/docs/configuration/download-cleaner/?unlinked-categories).
 
 ### Download Cleaner
@@ -34,7 +34,7 @@ Cette partie cherche les torrents qui n'ont plus de hardlink vers la bibliothèq
 Les catégories `radarr`, `tv-sonarr` et `cross-seed-link` sont vérifiées, puis les torrents orphelins sont déplacés vers la catégorie `unlinked`.
 
 `Ignored Root Directories` sert surtout à ne pas compter les hardlinks créés dans le dossier de téléchargement ou par cross-seed.
-On ignore donc `/data/downloads/qBittorrent` pour éviter que Cleanupparr considère un torrent comme encore utilisé juste parce qu'il a un lien dans la zone de téléchargement.
+On ignore donc `/data/downloads/qBittorrent` pour éviter que Cleanuparr considère un torrent comme encore utilisé juste parce qu'il a un lien dans la zone de téléchargement.
 
 ### Seeding Rules
 

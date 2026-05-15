@@ -42,9 +42,9 @@ Il peut par exemple :
 
 Les règles proposées sont dans [Optimiser les nouvelles applications](04-optimiser-applications.md).
 
-## Cleanupparr
+## Cleanuparr
 
-Cleanupparr nettoie surtout le côté téléchargement.
+Cleanuparr nettoie surtout le côté téléchargement.
 
 Il aide à gérer :
 
@@ -59,6 +59,8 @@ Il aide à gérer :
 - qBittorrent
 - Radarr
 - Sonarr
+
+La configuration est dans [Optimiser les nouvelles applications](04-optimiser-applications.md).
 
 ## Cross-seed / QUI
 
@@ -108,7 +110,7 @@ Ajoutez les apps progressivement :
 
 1. Profilarr ou configuration manuelle des profils
 2. Maintainerr
-3. Cleanupparr
+3. Cleanuparr
 4. Cross-seed / QUI
 5. Tautulli, Homarr, Wizarr selon vos besoins
 

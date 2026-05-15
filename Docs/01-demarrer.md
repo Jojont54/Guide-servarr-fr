@@ -51,7 +51,7 @@ Pour commencer, installez seulement le minimum :
 
 Seerr/Jellyseerr/Overseerr peut venir juste après, quand Radarr et Sonarr fonctionnent.
 
-Les outils optionnels comme Maintainerr, Cleanupparr, Cross-seed et Profilarr sont utiles, mais il vaut mieux les ajouter quand la base est stable.
+Les outils optionnels comme Maintainerr, Cleanuparr, Cross-seed et Profilarr sont utiles, mais il vaut mieux les ajouter quand la base est stable.
 
 Pour voir une configuration complète en vidéo :
 [vidéo OptiNAS sur la configuration Servarr](https://www.youtube.com/watch?v=gQ56YY4Y56o)
