@@ -37,6 +37,7 @@ L’objectif est d’avoir un serveur simple, compréhensible, puis de l’amél
 1. [Docker, dossiers et réseau](Docs/annexe-1-docker-reseau.md)
 2. [Vidéo : comprendre les releases](Docs/annexe-2-video.md)
 3. [Torrents, ratio et VPN](Docs/annexe-3-torrents.md)
+4. [Exemples Docker Compose](Docs/annexe-4-docker-compose.md)
 
 ## Le principe en une minute
 

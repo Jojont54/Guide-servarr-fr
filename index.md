@@ -14,5 +14,6 @@ home: true
   | replace: 'Docs/04-optimiser-applications.md', 'Docs/04-optimiser-applications.html'
   | replace: 'Docs/annexe-1-docker-reseau.md', 'Docs/annexe-1-docker-reseau.html'
   | replace: 'Docs/annexe-2-video.md', 'Docs/annexe-2-video.html'
-  | replace: 'Docs/annexe-3-torrents.md', 'Docs/annexe-3-torrents.html' %}
+  | replace: 'Docs/annexe-3-torrents.md', 'Docs/annexe-3-torrents.html'
+  | replace: 'Docs/annexe-4-docker-compose.md', 'Docs/annexe-4-docker-compose.html' %}
 {{ readme_content | markdownify }}

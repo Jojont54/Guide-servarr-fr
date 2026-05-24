@@ -239,6 +239,8 @@ Ce fichier dit :
 
 L’avantage : la configuration est écrite, sauvegardable et reproductible.
 
+Pour passer de cet exemple isolé à une installation complète, utilisez les fichiers de départ de [l'annexe Exemples Docker Compose](annexe-4-docker-compose.md).
+
 ## Résumé
 
 Pour un setup Servarr propre :

@@ -55,6 +55,10 @@ Pour commencer, installez seulement le minimum :
 - Sonarr
 - Plex ou Jellyfin
 
+Si vous ne savez pas encore comment déployer ces applications, consultez [l'annexe Docker, dossiers et réseau](annexe-1-docker-reseau.md).
+Des outils comme Unraid, TrueNAS, Synology, Portainer, Dockstarter ou Ultra.cc ajoutent une interface graphique et simplifient l'installation des conteneurs.
+Pour partir d'un fichier concret, utilisez les modèles de [l'annexe Exemples Docker Compose](annexe-4-docker-compose.md).
+
 Seerr/Jellyseerr/Overseerr peut venir juste après, quand Radarr et Sonarr fonctionnent.
 
 Les outils optionnels comme Maintainerr, Cleanuparr, Cross-seed et Profilarr sont utiles, mais il vaut mieux les ajouter quand la base est stable.
