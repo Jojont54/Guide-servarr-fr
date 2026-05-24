@@ -352,9 +352,22 @@ Avec un fichier WireGuard récent, l'élément important est d'avoir activé NAT
 ## Exemple 3 : Applications optionnelles
 
 Ce bloc peut être ajouté au compose de base quand le serveur fonctionne déjà.
-Il installe Maintainerr, Cleanuparr et Cross-seed ; leur configuration fonctionnelle est expliquée dans [Optimiser les nouvelles applications](04-optimiser-applications.md).
+Il installe Profilarr, Maintainerr, Cleanuparr et Cross-seed ; leur configuration fonctionnelle est expliquée dans [Optimiser les nouvelles applications](04-optimiser-applications.md).
 
 ```yaml
+  profilarr:
+    image: santiagosayshey/profilarr:latest
+    container_name: profilarr
+    environment:
+      - TZ=${TZ}
+    volumes:
+      - ${APPDATA}/profilarr:/config
+    ports:
+      - "6868:6868"
+    restart: unless-stopped
+    networks:
+      - servarr
+
   maintainerr:
     image: ghcr.io/maintainerr/maintainerr:latest
     container_name: maintainerr
@@ -405,6 +418,7 @@ Il installe Maintainerr, Cleanuparr et Cross-seed ; leur configuration fonctionn
 
 À retenir :
 
+- Profilarr est accessible sur `http://IP_DU_SERVEUR:6868` et conserve sa configuration dans `/config`.
 - Maintainerr conserve ses données dans `/opt/data`.
 - Cleanuparr a besoin de voir les téléchargements et la bibliothèque pour contrôler les hardlinks.
 - Cross-seed utilise `user: UID:GID`, et non les variables `PUID` / `PGID`.
@@ -425,6 +439,7 @@ Avant un `docker compose up -d`, contrôlez :
 - [Documentation Docker Compose](https://docs.docker.com/compose/)
 - [Images LinuxServer.io](https://docs.linuxserver.io/)
 - [Installation Docker de Seerr](https://docs.seerr.dev/getting-started/docker)
+- [Installation Docker de Profilarr](https://github.com/Dictionarry-Hub/profilarr)
 - [Image binhex/qbittorrentvpn](https://hub.docker.com/r/binhex/arch-qbittorrentvpn)
 - [Port forwarding manuel ProtonVPN](https://protonvpn.com/support/port-forwarding-manual-setup)
 - [Installation de Maintainerr](https://docs.maintainerr.info/installation/)
