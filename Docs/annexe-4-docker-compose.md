@@ -137,6 +137,78 @@ Ces commandes peuvent être lancées depuis n'importe quel dossier :
 | Voir aussi les conteneurs arrêtés | `docker ps -a` |
 | Voir l'espace disque utilisé par Docker | `docker system df` |
 
+## Un fichier YAML par application
+
+Vous n'êtes pas obligé de placer toutes les applications dans un seul fichier `compose.yaml`.
+Vous pouvez créer un dossier `docker-compose` contenant un fichier YAML nommé par application, ce qui permet de les retrouver et de les gérer indépendamment.
+
+Exemple d'organisation :
+
+```text
+/srv/servarr/docker-compose
+├── qbittorrent.yaml
+├── prowlarr.yaml
+├── radarr.yaml
+├── sonarr.yaml
+└── jellyfin.yaml
+```
+
+`compose.yaml` est le nom lu automatiquement par Docker Compose. Avec un fichier nommé `radarr.yaml`, précisez son nom avec l'option `-f`.
+
+Pour démarrer uniquement Radarr, ouvrez un terminal dans le dossier `docker-compose` :
+
+```bash
+cd /srv/servarr/docker-compose
+docker compose -f radarr.yaml up -d
+```
+
+Sur un NAS, cette séparation peut aussi se traduire par un projet ou un conteneur créé séparément dans l'interface web.
+
+### Garder les applications connectées
+
+Avec plusieurs fichiers Compose, créez une seule fois un réseau commun :
+
+```bash
+docker network create servarr
+```
+
+Ajoutez ensuite cette partie à la fin de **chaque** fichier YAML :
+
+```yaml
+networks:
+  servarr:
+    external: true
+```
+
+Et conservez dans chaque service :
+
+```yaml
+    networks:
+      - servarr
+```
+
+Ainsi, Radarr peut joindre `qbittorrent` ou `prowlarr` par leur nom de conteneur, même si les applications sont définies dans des fichiers différents.
+
+Le réseau commun ne remplace pas les dossiers partagés : qBittorrent, Radarr et Sonarr doivent toujours monter le même volume en `/data`, par exemple :
+
+```yaml
+    volumes:
+      - ${DATA}:/data
+```
+
+Pour lancer plusieurs fichiers en même temps, ajoutez simplement plusieurs options `-f` :
+
+```bash
+docker compose -f qbittorrent.yaml -f prowlarr.yaml -f radarr.yaml -f sonarr.yaml -f jellyfin.yaml up -d
+```
+
+### Un seul fichier ou plusieurs ?
+
+| Organisation | Avantage principal | Bon choix si... |
+| --- | --- | --- |
+| Un seul `compose.yaml` | Toute la stack se lance en une commande | Vous débutez et voulez une installation simple à suivre |
+| Un fichier YAML nommé par application | Chaque conteneur est simple à retrouver et à gérer | Votre NAS fonctionne par projets séparés ou vous préférez isoler les services |
+
 ## Exemple 1 : La base avec Jellyfin
 
 Cet exemple contient qBittorrent **sans VPN**, Prowlarr, Radarr, Sonarr, Jellyfin et Seerr.
