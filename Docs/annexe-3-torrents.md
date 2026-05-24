@@ -1,3 +1,9 @@
+---
+layout: default
+title: Torrents, ratio et VPN
+description: Comprendre le seed, le port forwarding et l'utilisation d'un VPN.
+---
+
 # **Annexe 3 : Torrents, ratio et VPN**
 
 ## Différence tracker public / privé ?

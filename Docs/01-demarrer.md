@@ -1,3 +1,9 @@
+---
+layout: default
+title: Démarrer pas à pas
+description: Installer et connecter la base d'un serveur Servarr fonctionnel.
+---
+
 # **Démarrer pas à pas**
 
 Cette page sert de fil conducteur.

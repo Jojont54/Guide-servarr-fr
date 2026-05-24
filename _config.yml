@@ -1,0 +1,10 @@
+title: Guide Servarr FR
+description: Monter et optimiser un serveur multimédia automatisé avec la suite Arr.
+lang: fr-FR
+theme: jekyll-theme-primer
+markdown: kramdown
+plugins:
+  - jekyll-relative-links
+relative_links:
+  enabled: true
+  collections: true

@@ -1,3 +1,9 @@
+---
+layout: default
+title: Optimiser les nouvelles applications
+description: Configurer Cleanuparr, Cross-seed et Maintainerr.
+---
+
 # **Optimiser les nouvelles applications**
 
 Cette page vient après l'ajout des applications optionnelles.

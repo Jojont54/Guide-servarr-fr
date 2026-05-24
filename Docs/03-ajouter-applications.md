@@ -1,3 +1,9 @@
+---
+layout: default
+title: Ajouter des applications
+description: Compléter une installation Servarr avec les outils utiles.
+---
+
 # **Ajouter des applications**
 
 Une fois la base fonctionnelle, vous pouvez ajouter des applications autour de Servarr.

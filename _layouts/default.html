@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="{{ site.lang | default: 'fr-FR' }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#122638">
+    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+    <meta name="description" content="{{ page.description | default: site.description }}">
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    {% include head-custom.html %}
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="{{ '/' | relative_url }}">
+          <span class="brand-mark">S</span>
+          <span>
+            <strong>{{ site.title }}</strong>
+            <small>Serveur multimédia automatisé</small>
+          </span>
+        </a>
+        <nav class="top-nav" aria-label="Navigation principale">
+          <a href="{{ '/Docs/01-demarrer.html' | relative_url }}">Démarrer</a>
+          <a href="{{ '/Docs/02-optimiser-base.html' | relative_url }}">Optimiser</a>
+          <a href="{{ '/Docs/03-ajouter-applications.html' | relative_url }}">Applications</a>
+          <a href="{{ '/Docs/04-optimiser-applications.html' | relative_url }}">Entretien</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="site-body{% if page.home %} home{% endif %}">
+      {% unless page.home %}
+      <aside class="sidebar" aria-label="Sommaire">
+        <p class="sidebar-title">Parcours</p>
+        <a href="{{ '/Docs/01-demarrer.html' | relative_url }}">1. Démarrer pas à pas</a>
+        <a href="{{ '/Docs/02-optimiser-base.html' | relative_url }}">2. Optimiser la base</a>
+        <a href="{{ '/Docs/03-ajouter-applications.html' | relative_url }}">3. Ajouter des apps</a>
+        <a href="{{ '/Docs/04-optimiser-applications.html' | relative_url }}">4. Optimiser les apps</a>
+
+        <p class="sidebar-title">Annexes</p>
+        <a href="{{ '/Docs/annexe-1-docker-reseau.html' | relative_url }}">Docker et réseau</a>
+        <a href="{{ '/Docs/annexe-2-video.html' | relative_url }}">Vidéo et releases</a>
+        <a href="{{ '/Docs/annexe-3-torrents.html' | relative_url }}">Torrents et VPN</a>
+      </aside>
+      {% endunless %}
+
+      <main class="content">
+        {{ content }}
+      </main>
+    </div>
+
+    <footer class="site-footer">
+      <p>Guide Servarr FR - documentation communautaire.</p>
+    </footer>
+  </body>
+</html>

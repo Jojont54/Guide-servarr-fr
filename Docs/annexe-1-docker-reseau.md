@@ -1,3 +1,9 @@
+---
+layout: default
+title: Docker, dossiers et réseau
+description: Comprendre les conteneurs, volumes, chemins et hardlinks.
+---
+
 # **Annexe 1 : Docker, dossiers et réseau**
 
 Avant de configurer Radarr, Sonarr ou Prowlarr, il faut comprendre trois choses :

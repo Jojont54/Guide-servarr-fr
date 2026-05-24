@@ -1,3 +1,9 @@
+---
+layout: default
+title: Vidéo, codecs et releases
+description: Comprendre les sources, codecs, langues et formats audio-vidéo.
+---
+
 # **Annexe 2 : Vidéo, codecs et releases**
 
 Quand on configure Radarr/Sonarr, on ne choisit pas seulement une résolution.

@@ -1,3 +1,9 @@
+---
+layout: default
+title: Optimiser la base
+description: Configurer les profils qualité et Custom Formats pour Radarr et Sonarr.
+---
+
 # **Optimiser cette bonne base**
 
 Cette page arrive après l'installation de base.
