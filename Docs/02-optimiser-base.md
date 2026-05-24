@@ -41,8 +41,6 @@ Il est aussi important de mettre cette option a "do not prefer" sinon le systèm
 
 <img src="assets/media-management.png" width="800">
 
-Pour copier les YAML, il faut aller directement dans le repo : [Optimiser cette bonne base](https://github.com/Jojont54/Guide-servarr-fr/blob/main/Docs/02-optimiser-base.md)  
-
 ### FR (On prend si y’a que ca, ou VFO)
 ```yaml
 {
