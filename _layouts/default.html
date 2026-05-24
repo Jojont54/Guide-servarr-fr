@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#122638">
+    <meta name="theme-color" content="#272255">
     <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
     <meta name="description" content="{{ page.description | default: site.description }}">
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
@@ -13,18 +13,12 @@
     <header class="site-header">
       <div class="header-inner">
         <a class="brand" href="{{ '/' | relative_url }}">
-          <span class="brand-mark">S</span>
+          <img class="brand-icon" src="{{ '/Docs/assets/favicon.png' | relative_url }}" alt="">
           <span>
             <strong>{{ site.title }}</strong>
             <small>Serveur multimédia automatisé</small>
           </span>
         </a>
-        <nav class="top-nav" aria-label="Navigation principale">
-          <a href="{{ '/Docs/01-demarrer.html' | relative_url }}">Démarrer</a>
-          <a href="{{ '/Docs/02-optimiser-base.html' | relative_url }}">Optimiser</a>
-          <a href="{{ '/Docs/03-ajouter-applications.html' | relative_url }}">Applications</a>
-          <a href="{{ '/Docs/04-optimiser-applications.html' | relative_url }}">Entretien</a>
-        </nav>
       </div>
     </header>
 
