@@ -17,6 +17,8 @@ Si Radarr/Sonarr n'importent pas correctement, ou si les chemins ne sont pas pro
 
 Si vous ne voulez pas utiliser **Profilarr**, vous pouvez appliquer les YAML ci-dessous manuellement. Sinon, vous pouvez utiliser mon repo DB FR pour Profilarr : [Profilarr-database-french-regex](https://github.com/Jojont54/Profilarr-database-french-regex)  
 
+Pour **Profilarr V2**, utilisez la branche `stable` / `main` si vous voulez choisir des profils préfaits. La branche `template-fr-base` sert plutôt à créer vos propres scores depuis une base propre, avec les détails techniques déjà présents mais non scorés ; c'est plus accessible que de tout construire directement dans Radarr/Sonarr.
+
 Adaptation des Custom-Formats de Pandaarr (sans problème d’espace, ni de transcodage)  
 [https://github.com/Pandaarr/arr-custom-formats](https://github.com/Pandaarr/arr-custom-formats)
 

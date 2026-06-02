@@ -26,6 +26,8 @@ C'est utile si vous ne voulez pas tout recréer à la main dans Radarr et Sonarr
 Repo DB FR :
 [Profilarr-database-french-regex](https://github.com/Jojont54/Profilarr-database-french-regex)
 
+Pour **Profilarr V2**, la branche `stable` / `main` permet de choisir des profils préfaits. La branche `template-fr-base` permet plutôt de créer vos propres scores depuis une base propre, avec les détails techniques déjà présents mais non scorés.
+
 Si vous préférez faire manuellement, utilisez la page [Optimiser cette bonne base](02-optimiser-base.md).
 
 ## Maintainerr
