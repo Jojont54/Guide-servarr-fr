@@ -49,15 +49,16 @@ Ce n'est pas forcément le moins cher sur plusieurs années.
 
 L'ordre ci-dessous est une estimation **du plus accessible au plus cher**, mais il varie beaucoup selon les disques, les promotions et le matériel déjà disponible.
 Les fourchettes donnent un ordre d'idée en juin 2026 ; pour les machines à la maison, elles sont indiquées **hors disques durs / SSD de stockage**, sauf mention contraire.
+Pour le **prix**, plus il y a d'étoiles, plus c'est cher. Pour la **puissance** et le **stockage**, plus il y a d'étoiles, plus c'est confortable.
 
 | Option | Prix | Puissance | Stockage possible | Idéal pour | Limite principale |
 | --- | --- | --- | --- | --- | --- |
-| Seedbox | 5 à 30 €/mois, plus pour beaucoup de stockage ou de streaming | Variable selon l'offre | Souvent 1 à 8 To, plus sur offres chères | démarrer sans matériel à la maison | abonnement permanent |
-| Raspberry Pi 4/5 | 100 à 250 € avec boîtier, alimentation et petit stockage | Faible à correcte, sans vrai transcodage | 1 à 2 disques USB conseillé | petit serveur léger, faible consommation | peu adapté au transcodage |
-| UGREEN NAS | 300 à 900 € boîtier nu | Correcte à bonne selon modèle | 2 à 8 baies selon modèle | NAS moderne prêt à l'emploi | écosystème plus jeune |
-| Synology | 250 à 900 € boîtier nu | Correcte, très dépendante du modèle | 2 à 4 baies pour les modèles courants | débutants qui veulent une interface très propre | matériel parfois cher pour la puissance |
-| QNAP | 250 à 1 000 € boîtier nu | Correcte à bonne, souvent plus flexible | 2 à 6 baies courantes, plus sur gros modèles | utilisateurs qui veulent plus d'options matérielles | interface plus technique |
-| DIY Unraid / TrueNAS | 0 à 400 € si matériel récupéré, 500 à 1 500 €+ en neuf | Très variable, potentiellement élevée | Très variable, souvent 4 à 12 disques ou plus | serveur puissant, évolutif et personnalisable | demande plus de maintenance |
+| Seedbox | ★★☆☆☆<br>5 à 30 €/mois | ★★☆☆☆ | ★★☆☆☆ | démarrer sans matériel à la maison | abonnement permanent |
+| Raspberry Pi 4/5 | ★★☆☆☆<br>100 à 250 € | ★☆☆☆☆ | ★☆☆☆☆ | petit serveur léger, faible consommation | peu adapté au transcodage |
+| UGREEN NAS | ★★★☆☆<br>300 à 900 € | ★★★☆☆ | ★★★★☆ | NAS moderne prêt à l'emploi | écosystème plus jeune |
+| Synology | ★★★☆☆<br>250 à 900 € | ★★☆☆☆ | ★★★☆☆ | débutants qui veulent une interface très propre | matériel parfois cher pour la puissance |
+| QNAP | ★★★★☆<br>250 à 1 000 € | ★★★★☆ | ★★★★☆ | utilisateurs qui veulent plus d'options matérielles | interface plus technique |
+| DIY Unraid / TrueNAS | ★★★★☆<br>0 à 1 500 €+ | ★★★★★ | ★★★★★ | serveur puissant, évolutif et personnalisable | demande plus de maintenance |
 
 ## Raspberry Pi 4/5
 
