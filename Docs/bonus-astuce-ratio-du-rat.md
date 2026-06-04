@@ -50,12 +50,12 @@ Le but est d'utiliser une machine stable, peu chère et peu énergivore. Pour l'
 
 | Besoin | Astuce du rat | Stack entière |
 | --- | --- | --- |
-| CPU | Raspberry Pi 4/5, vieux thin client, vieux portable très modeste ou petite machine basse consommation | Intel N100/N150, i7-2600 ou vieux PC avec CPU correct ; visez environ 5 000 points CPU Mark ou plus |
-| RAM | 2 Go minimum, 4 Go plus confortable | 8 Go recommandés pour Radarr, Sonarr, Prowlarr, qBittorrent, Plex/Jellyfin et Seerr |
-| Stockage système | petit SSD conseillé ou carte SD sur Raspberry Pi 4/5 | SSD conseillé pour Docker et les bases de données des applications |
-| Stockage torrents | disque USB, SSD, disque interne ou partage réseau | disque interne, NAS ou stockage fiable avec assez de place pour la bibliothèque |
-| Réseau | Ethernet recommandé | Ethernet fortement recommandé, surtout avec plusieurs utilisateurs |
-| Consommation | le plus bas possible, car la machine reste allumée longtemps | moins prioritaire, mais à surveiller sur un vieux PC allumé 24/7 |
+| CPU | Raspberry Pi 4/5<br>vieux thin client<br>vieux portable très modeste | Intel N100/N150<br>i7-2600<br>vieux PC avec CPU correct<br>environ 5 000 CPU Mark ou plus |
+| RAM | 2 Go minimum<br>4 Go plus confortable | 8 Go recommandés |
+| Stockage système | petit SSD conseillé<br>carte SD possible sur Raspberry Pi 4/5 | SSD conseillé pour Docker et les bases de données |
+| Stockage torrents | disque USB<br>SSD<br>disque interne<br>partage réseau | disque interne, NAS ou stockage fiable<br>assez de place pour la bibliothèque |
+| Réseau | Ethernet recommandé | Ethernet fortement recommandé<br>surtout avec plusieurs utilisateurs |
+| Consommation | le plus bas possible<br>machine allumée longtemps | moins prioritaire<br>à surveiller sur un vieux PC 24/7 |
 
 ## Organisation simple
 

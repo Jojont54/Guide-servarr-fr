@@ -42,7 +42,7 @@ L’objectif est d’avoir un serveur simple, compréhensible, puis de l’amél
 
 ## Bonus
 
-- [Astuce ratio du rat](Docs/bonus-astuce-ratio-du-rat.md)
+1. [Astuce ratio du rat](Docs/bonus-astuce-ratio-du-rat.md)
 
 ## Le principe en une minute
 

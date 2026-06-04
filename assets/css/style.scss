@@ -276,17 +276,35 @@ a:hover {
 }
 
 .content table {
-  display: block;
+  display: table;
+  width: 100%;
   max-width: 100%;
   overflow-x: auto;
   border: 1px solid var(--line);
   border-radius: 8px;
   border-collapse: separate;
   border-spacing: 0;
+  background: var(--surface);
 }
 
 .content th {
   background: #f0eef8;
+}
+
+.content th,
+.content td {
+  padding: 10px 12px;
+  vertical-align: top;
+  line-height: 1.45;
+}
+
+.content td {
+  border-top: 1px solid #ebe8f4;
+}
+
+.content td:first-child {
+  color: var(--brand-dark);
+  font-weight: 600;
 }
 
 .content hr {
@@ -350,5 +368,9 @@ a:hover {
 
   .home .content h2 + ol {
     grid-template-columns: 1fr;
+  }
+
+  .content table {
+    display: block;
   }
 }
