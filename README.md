@@ -40,6 +40,10 @@ L’objectif est d’avoir un serveur simple, compréhensible, puis de l’amél
 4. [Exemples Docker Compose](Docs/annexe-4-docker-compose.md)
 5. [Quel NAS ou Seedbox ?](Docs/annexe-5-nas-seedbox.md)
 
+## Bonus
+
+- [Astuce ratio du rat](Docs/bonus-astuce-ratio-du-rat.md)
+
 ## Le principe en une minute
 
 ```text

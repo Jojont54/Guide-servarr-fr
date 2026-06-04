@@ -16,5 +16,6 @@ home: true
   | replace: 'Docs/annexe-2-video.md', 'Docs/annexe-2-video.html'
   | replace: 'Docs/annexe-3-torrents.md', 'Docs/annexe-3-torrents.html'
   | replace: 'Docs/annexe-4-docker-compose.md', 'Docs/annexe-4-docker-compose.html'
-  | replace: 'Docs/annexe-5-nas-seedbox.md', 'Docs/annexe-5-nas-seedbox.html' %}
+  | replace: 'Docs/annexe-5-nas-seedbox.md', 'Docs/annexe-5-nas-seedbox.html'
+  | replace: 'Docs/bonus-astuce-ratio-du-rat.md', 'Docs/bonus-astuce-ratio-du-rat.html' %}
 {{ readme_content | markdownify }}
