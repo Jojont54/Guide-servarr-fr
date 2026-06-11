@@ -41,6 +41,10 @@ Il peut par exemple :
 - protéger certains films ou séries avec un tag `perma`
 - gérer les overlays directement depuis Maintainerr
 
+Exemple d'overlay Maintainerr sur une affiche :
+
+<img src="assets/maintainerr-overlay-example.png" width="224" alt="Exemple d'overlay Maintainerr avec un bandeau indiquant Part dans 3 jours">
+
 À connecter :
 
 - Plex ou Jellyfin
