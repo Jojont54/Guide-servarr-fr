@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Optimiser les nouvelles applications
-description: Configurer Cleanuparr, Cross-seed et Maintainerr.
+description: Configurer Profilarr, Cleanuparr, Cross-seed et Maintainerr.
 ---
 
 # **Optimiser les nouvelles applications**
@@ -16,6 +16,51 @@ On ne cherche plus seulement à télécharger et lire un média, mais à éviter
 
 Les outils de cette partie peuvent supprimer ou déplacer des fichiers.
 Il vaut mieux les configurer progressivement, vérifier leur comportement, puis durcir les règles quand on est sûr du résultat.
+
+## Profilarr
+
+Profilarr sert à appliquer une base de profils qualité et de Custom Formats dans Radarr/Sonarr sans tout recréer à la main.
+
+La configuration se fait en trois temps :
+
+1. Dans **Databases**, ajoutez la database que vous voulez utiliser.
+2. Dans **Arrs**, connectez Radarr et Sonarr avec leur URL et leur API Key.
+3. Dans **Sync**, choisissez les settings et les profils à synchroniser, puis lancez la synchronisation vers les applications Arr.
+
+Après le sync, retournez dans Radarr/Sonarr pour vérifier que les profils, scores et Custom Formats ont bien été créés.
+
+### Databases
+
+<img src="assets/profilarr-db.png" width="230" alt="Menu Databases de Profilarr">
+
+Ouvrez **Databases**, puis utilisez le bouton d'ajout.
+
+<img src="assets/profilarr-plus.png" width="72" alt="Bouton ajouter dans Profilarr">
+
+Ajoutez le nom de votre base et l'URL du dépôt GitHub.
+
+<img src="assets/profilarr-add.png" width="800" alt="Formulaire d'ajout d'une database dans Profilarr">
+
+### Arrs
+
+<img src="assets/profilarr-arrs.png" width="120" alt="Menu Arrs de Profilarr">
+
+Ouvrez **Arrs**, puis utilisez le même bouton d'ajout.
+
+<img src="assets/profilarr-plus.png" width="72" alt="Bouton ajouter dans Profilarr">
+
+Ajoutez Radarr puis Sonarr avec leur URL et leur API Key.
+
+<img src="assets/profilarr-add-arr.png" width="800" alt="Formulaire d'ajout d'une application Arr dans Profilarr">
+
+### Sync
+
+Quand la database et les Arrs sont prêts, ouvrez l'onglet **Sync**.
+Choisissez les settings et les profils que vous voulez envoyer vers Radarr/Sonarr, puis lancez la synchronisation.
+
+<img src="assets/profilarr-arrs-sync.png" width="120" alt="Bouton Sync de Profilarr">
+
+Vérifiez ensuite dans Radarr/Sonarr que les profils et Custom Formats ont bien été envoyés.
 
 ## Cleanuparr
 
