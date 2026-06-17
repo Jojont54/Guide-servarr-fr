@@ -20,6 +20,7 @@ Il vaut mieux les configurer progressivement, vérifier leur comportement, puis 
 ## Profilarr
 
 Profilarr sert à appliquer une base de profils qualité et de Custom Formats dans Radarr/Sonarr sans tout recréer à la main.
+Pour plus de détails sur la logique du repo DB FR et son utilisation avec Profilarr, consultez la [documentation du repo Profilarr-database-french-regex](https://github.com/Jojont54/Profilarr-database-french-regex/blob/stable/docs/index.md).
 
 La configuration se fait en trois temps :
 
