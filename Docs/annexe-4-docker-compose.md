@@ -46,9 +46,11 @@ TZ=Europe/Paris
 APPDATA=/srv/servarr/appdata
 DATA=/srv/servarr/data
 LAN_NETWORK=192.168.1.0/24
+VPN_USER=identifiant_vpn
+VPN_PASS=mot_de_passe_vpn
 ```
 
-Le fichier `.env` n'est pas obligatoire : vous pouvez remplacer directement `${PUID}`, `${PGID}`, `${APPDATA}`, `${DATA}` et `${LAN_NETWORK}` par vos valeurs dans chaque conteneur. Il évite simplement de répéter les mêmes chemins et réglages partout.
+Le fichier `.env` n'est pas obligatoire : vous pouvez remplacer directement `${PUID}`, `${PGID}`, `${APPDATA}`, `${DATA}`, `${LAN_NETWORK}`, `${VPN_USER}` et `${VPN_PASS}` par vos valeurs dans chaque conteneur. Il évite simplement de répéter les mêmes chemins et réglages partout.
 
 - `PUID` et `PGID` doivent correspondre à l'utilisateur qui possède vos dossiers.
 - `DATA` doit contenir à la fois `downloads` et `library` pour permettre les hardlinks.
@@ -371,7 +373,8 @@ Le mode réseau `host` est couramment utilisé pour faciliter la découverte loc
 
 Cet exemple remplace uniquement le service `qbittorrent` du premier compose.
 L'image `binhex/arch-qbittorrentvpn` inclut qBittorrent, WireGuard/OpenVPN et des règles réseau empêchant les fuites si le tunnel VPN tombe.
-Elle prend nativement en charge **ProtonVPN**, **Private Internet Access (PIA)** et **AirVPN** via `VPN_PROV=protonvpn`, `VPN_PROV=pia` ou `VPN_PROV=airvpn`.
+Pour débuter, privilégiez **Private Internet Access (PIA)** ou **AirVPN**, qui sont plus simples à utiliser avec un port entrant stable dans ce type de conteneur.
+ProtonVPN est bien accepté par l'image via `VPN_PROV=protonvpn`, mais son port forwarding manuel repose sur NAT-PMP et demande un renouvellement régulier.
 
 ```yaml
   qbittorrent:
@@ -385,7 +388,9 @@ Elle prend nativement en charge **ProtonVPN**, **Private Internet Access (PIA)**
       - PGID=${PGID}
       - UMASK=002
       - VPN_ENABLED=yes
-      - VPN_PROV=protonvpn
+      - VPN_USER=${VPN_USER}
+      - VPN_PASS=${VPN_PASS}
+      - VPN_PROV=pia
       - VPN_CLIENT=wireguard
       - STRICT_PORT_FORWARD=yes
       - LAN_NETWORK=${LAN_NETWORK}
@@ -407,18 +412,22 @@ Elle prend nativement en charge **ProtonVPN**, **Private Internet Access (PIA)**
 `privileged: true` et `net.ipv4.conf.all.src_valid_mark=1` sont nécessaires avec WireGuard selon la documentation de l'image.
 Les ports `8118` (Privoxy) et `9118` (SOCKS) ne sont pas ouverts ici car ces fonctions restent désactivées. Ne remplacez pas `PUID`, `PGID` par `0` : utilisez l'utilisateur propriétaire de vos dossiers.
 
-### Cas ProtonVPN / WireGuard
+### Cas ProtonVPN
 
-Dans l'espace ProtonVPN, générez une configuration WireGuard sur un serveur P2P en activant l'option **NAT-PMP (Port Forwarding)**, puis placez le fichier WireGuard dans le dossier de configuration attendu par l'image binhex.
+ProtonVPN peut fonctionner comme tunnel VPN dans binhex, mais son port forwarding n'est pas le plus simple pour cet usage.
 
-Pour ProtonVPN en OpenVPN, le suffixe `+pmp` dans l'identifiant sert à demander le port forwarding.
-Avec un fichier WireGuard récent, l'élément important est d'avoir activé NAT-PMP au moment de générer la configuration.
+D'après la documentation Proton, le port forwarding manuel utilise **NAT-PMP**.
+Le mapping est demandé pour 60 secondes et doit être renouvelé en boucle, par exemple toutes les 45 secondes, sinon le port expire.
+
+En clair : ProtonVPN reste utilisable pour protéger le trafic torrent, mais je ne le recommande pas avec `binhex/arch-qbittorrentvpn` si votre objectif est un port entrant stable et simple à maintenir.
+Pour un débutant, PIA ou AirVPN sont plus adaptés avec cette image.
+Si vous tenez à utiliser ProtonVPN avec port forwarding, regardez plutôt du côté de **Gluetun**, qui documente ProtonVPN avec `VPN_PORT_FORWARDING=on`.
 
 À vérifier après démarrage :
 
 - l'interface qBittorrent est accessible depuis votre réseau local ;
 - les logs indiquent que le VPN est connecté ;
-- le port entrant est récupéré si `STRICT_PORT_FORWARD=yes` ;
+- le port entrant est récupéré si votre fournisseur et l'image le gèrent correctement ;
 - le trafic torrent ne sort pas si le VPN est arrêté.
 
 ## Exemple 3 : Applications optionnelles
@@ -514,6 +523,7 @@ Avant un `docker compose up -d`, contrôlez :
 - [Installation Docker de Profilarr](https://github.com/Dictionarry-Hub/profilarr)
 - [Image binhex/qbittorrentvpn](https://hub.docker.com/r/binhex/arch-qbittorrentvpn)
 - [Port forwarding manuel ProtonVPN](https://protonvpn.com/support/port-forwarding-manual-setup)
+- [Gluetun avec ProtonVPN](https://github.com/qdm12/gluetun-wiki/blob/main/setup/providers/protonvpn.md)
 - [Installation de Maintainerr](https://docs.maintainerr.info/installation/)
 - [Installation de Cleanuparr](https://cleanuparr.github.io/Cleanuparr/docs/installation/detailed/)
 - [Installation Docker de Cross-seed](https://www.cross-seed.org/docs/basics/getting-started)

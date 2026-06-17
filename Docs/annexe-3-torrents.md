@@ -30,10 +30,15 @@ Ratio = upload / download
 
 Choisis un VPN qui propose le port forwarding.
 
-**Exemples :**  
-ProtonVPN  
+**Exemples simples avec binhex-qbittorrentVPN :**
 Private Internet Access  
 AirVPN  
+
+**Cas particulier : ProtonVPN**
+ProtonVPN propose bien du port forwarding, mais il passe par **NAT-PMP** avec un port à renouveler régulièrement.
+D'après la documentation Proton, en configuration manuelle, le mapping NAT-PMP ne reste ouvert que 60 secondes si la boucle de renouvellement n'est pas relancée.
+Ce n'est donc pas le choix le plus simple avec `binhex-qbittorrentVPN` si vous voulez un port entrant stable sans script supplémentaire.
+En revanche, ProtonVPN reste possible avec **Gluetun**, qui documente `VPN_SERVICE_PROVIDER=protonvpn` et `VPN_PORT_FORWARDING=on`.
 
 **À éviter pour cet usage :**  
 les VPN sans port forwarding (ex : NordVPN)  

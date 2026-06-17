@@ -86,6 +86,8 @@ Deux approches sont possibles :
 
 Pour débuter, l'approche la plus simple reste un conteneur qBittorrent qui inclut directement le VPN et le kill switch.
 Cela évite de bricoler un VPN global sur toute la machine.
+Avec `binhex/arch-qbittorrentvpn`, PIA ou AirVPN sont plus simples à conseiller pour le port forwarding ; ProtonVPN utilise NAT-PMP et demande un renouvellement régulier du port.
+ProtonVPN reste possible avec **Gluetun**, mais c'est une approche un peu moins directe que le conteneur binhex tout-en-un.
 
 ## Exemple Docker Compose léger
 
@@ -107,7 +109,9 @@ services:
       - PGID=1000
       - UMASK=002
       - VPN_ENABLED=yes
-      - VPN_PROV=protonvpn
+      - VPN_USER=identifiant_vpn
+      - VPN_PASS=mot_de_passe_vpn
+      - VPN_PROV=pia
       - VPN_CLIENT=wireguard
       - STRICT_PORT_FORWARD=yes
       - LAN_NETWORK=192.168.1.0/24
