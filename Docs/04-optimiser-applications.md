@@ -25,7 +25,7 @@ La configuration se fait en trois temps :
 
 1. Dans **Databases**, ajoutez la database que vous voulez utiliser.
 2. Dans **Arrs**, connectez Radarr et Sonarr avec leur URL et leur API Key.
-3. Dans **Sync**, choisissez les settings et les profils à synchroniser, puis lancez la synchronisation vers les applications Arr.
+3. Allez dans **Arrs**, ouvrez le nom de l'app concernée, puis allez dans **Sync** pour choisir les settings et les profils à synchroniser.
 
 Après le sync, retournez dans Radarr/Sonarr pour vérifier que les profils, scores et Custom Formats ont bien été créés.
 
@@ -55,8 +55,13 @@ Ajoutez Radarr puis Sonarr avec leur URL et leur API Key.
 
 ### Sync
 
-Quand la database et les Arrs sont prêts, ouvrez l'onglet **Sync**.
-Choisissez les settings et les profils que vous voulez envoyer vers Radarr/Sonarr, puis lancez la synchronisation.
+Quand la database et les Arrs sont prêts, le chemin est :
+
+```text
+Arrs → nom de l'app → Sync → page de settings
+```
+
+Dans cette page, choisissez les settings et les profils que vous voulez envoyer, puis lancez la synchronisation.
 
 <img src="assets/profilarr-arrs-sync.png" width="120" alt="Bouton Sync de Profilarr">
 
