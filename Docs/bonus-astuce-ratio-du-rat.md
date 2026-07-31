@@ -46,14 +46,13 @@ C'est une base minimale pour faire monter un ratio avant d'investir dans une vra
 
 ## Matériel minimum
 
-Le but est d'utiliser une machine stable, peu chère et peu énergivore. Pour l'astuce ratio, la puissance CPU compte peu : le disque, le réseau et les chemins propres sont plus importants. Pour une stack Servarr complète, utilisez le score **CPU Mark** sur [PassMark / CPU Benchmark](https://www.cpubenchmark.net/) comme repère rapide : un Raspberry Pi 4 tourne plutôt autour de **850 à 1 000 points**, souvent proche de **950**, un Raspberry Pi 5 autour de **2 700 points**, et sous environ **5 000 points**, une stack complète devient plus difficile.
+Cette astuce vise l'économie maximale : une machine stable, peu chère et peu énergivore suffit largement si elle ne fait tourner que qBittorrent, Prowlarr, Cross-seed et éventuellement un VPN. La puissance CPU compte peu ; le disque, le réseau et des chemins propres sont plus importants. Pour comparer rapidement avec une stack Servarr complète, utilisez le score **CPU Mark** sur [PassMark / CPU Benchmark](https://www.cpubenchmark.net/) : un Raspberry Pi 4 tourne plutôt autour de **850 à 1 000 points**, souvent proche de **950**, un Raspberry Pi 5 autour de **2 700 points**, et sous environ **5 000 points**, une stack complète devient plus difficile.
 
-Au-delà d'environ **120 €** pour un pack Raspberry Pi, regardez les alternatives.
-Un PC SFF d'occasion ou un mini PC peut coûter un prix proche tout en offrant beaucoup plus de puissance.
+Gardez aussi un seuil de prix en tête : au-delà d'environ **120 €** pour un pack Raspberry Pi, regardez les alternatives. Un PC SFF d'occasion ou un mini PC peut coûter un prix proche tout en offrant beaucoup plus de puissance. Au-delà d'environ **200 €**, dirigez-vous plutôt vers un NAS 2 baies.
 
 | Besoin | Astuce du rat | Stack entière |
 | --- | --- | --- |
-| Prix | Raspberry Pi intéressant jusqu'à environ 120 € le pack | Au-dessus de 120 €, comparez avec un PC SFF ou mini PC d'occasion |
+| Prix | Raspberry Pi intéressant jusqu'à environ 120 € le pack | Entre 120 et 200 €, comparez avec un PC SFF ou mini PC ; au-delà de 200 €, regardez plutôt un NAS 2 baies |
 | CPU | Raspberry Pi 4/5<br>vieux thin client<br>vieux portable très modeste | PC SFF ou mini PC<br>vieux PC avec CPU correct<br>environ 5 000 CPU Mark ou plus |
 | RAM | 2 Go minimum<br>4 Go plus confortable | 8 Go recommandés |
 | Stockage système | petit SSD conseillé<br>carte SD possible sur Raspberry Pi 4/5 | SSD conseillé pour Docker et les bases de données |
