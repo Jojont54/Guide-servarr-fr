@@ -55,7 +55,8 @@ Pour le **prix**, plus il y a d'étoiles, plus c'est cher. Pour la **puissance**
 | --- | --- | --- | --- | --- | --- |
 | Seedbox | ★★☆☆☆<br>5 à 30 €/mois | ★★☆☆☆ | ★★☆☆☆ | démarrer sans matériel à la maison | abonnement permanent |
 | Raspberry Pi 4/5 | ★★☆☆☆<br>100 à 250 € | ★☆☆☆☆ | ★☆☆☆☆ | petit serveur léger, faible consommation | peu adapté au transcodage |
-| UGREEN NAS | ★★★☆☆<br>300 à 900 € | ★★★☆☆ | ★★★★☆ | NAS moderne prêt à l'emploi | écosystème plus jeune |
+| PC SFF / mini PC | ★★☆☆☆<br>120 à 350 € | ★★★★☆ | ★★☆☆☆ | stack Servarr légère à petit prix | stockage interne limité et disque en USB |
+| UGREEN NAS | ★★★☆☆<br>250 à 900 € | ★★★☆☆ | ★★★★☆ | NAS moderne prêt à l'emploi | écosystème plus jeune |
 | Synology | ★★★☆☆<br>250 à 900 € | ★★☆☆☆ | ★★★☆☆ | débutants qui veulent une interface très propre | matériel parfois cher pour la puissance |
 | QNAP | ★★★★☆<br>250 à 1 000 € | ★★★★☆ | ★★★★☆ | utilisateurs qui veulent plus d'options matérielles | interface plus technique |
 | DIY Unraid / TrueNAS | ★★★★☆<br>0 à 1 500 €+ | ★★★★★ | ★★★★★ | serveur puissant, évolutif et personnalisable | demande plus de maintenance |
@@ -76,6 +77,26 @@ Il consomme peu, ne prend presque pas de place et coûte moins cher qu'un NAS co
 
 Le Raspberry Pi n'est pas le bon choix si vous voulez transcoder, servir plusieurs utilisateurs en même temps ou brancher beaucoup de disques.
 Pour Plex/Jellyfin, il faut privilégier le **direct play** : le fichier doit déjà être compatible avec l'appareil qui lit la vidéo.
+
+Si le pack Raspberry Pi dépasse environ **120 €**, comparez avant d'acheter.
+À ce prix, un mini PC d'occasion ou un petit PC SFF peut offrir beaucoup plus de puissance pour un budget proche.
+
+## PC SFF / mini PC
+
+Un PC SFF, pour **Small Form Factor**, est un petit PC de bureau compact.
+On en trouve parfois d'occasion à bon prix, tout comme des mini PC récents en Intel N95, N97, N100/N150 ou Ryzen basse consommation.
+
+### Pour qui ?
+
+- vous voulez plus puissant qu'un Raspberry Pi sans acheter un NAS complet ;
+- vous acceptez d'utiliser un disque USB, un DAS, un partage réseau ou un stockage séparé ;
+- vous voulez faire tourner une stack Servarr complète légère ;
+- vous cherchez un bon rapport puissance/prix.
+
+### À savoir
+
+C'est souvent le meilleur compromis petit budget si vous n'avez pas besoin de plusieurs baies internes.
+La limite vient surtout du stockage : beaucoup de mini PC n'ont qu'un SSD interne et quelques ports USB.
 
 ## UGREEN NAS
 
